@@ -1,6 +1,6 @@
 ---
 title: QTM 151 - Introduction to Statistical Computing II
-subtitle: Lecture 20 - Joining Tables in SQL
+subtitle: Lecture 20 - Joining Tables in SQL (SQLite)
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -9,7 +9,7 @@ format:
   clean-revealjs:
     self-contained: true
     code-overflow: wrap
-    footer: "[Joining Tables](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-20/20-sql-merging.html)"
+    footer: "[Joining Tables (SQLite)](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-20/20-sql-merging.html)" # Updated footer
 transition: slide
 transition-speed: default
 scrollable: true
@@ -27,7 +27,7 @@ editor:
 
 ## Some updates on the final project
 
-:::{style="margin-top: 60px; font-size: 24px;"}
+::: {style="margin-top: 60px; font-size: 24px;"}
 - The list of groups is now available on our reppository. [Check it out here](https://github.com/danilofreire/qtm151/blob/main/final-project/groups.ipynb)
 - All groups have 3-4 members, as we discussed
 - Many thanks to all of you who have already formed your groups and sent them to me! 🙏🏻
@@ -39,17 +39,17 @@ editor:
 ## Brief recap of last lecture
 ### Last time, we learned how to:
 
-:::{style="margin-top: 30px; font-size: 24px;"}
-:::{.columns}
-:::{.column width=50%}
-- Use `psycopg2` to connect to a PostgreSQL database
+::: {style="margin-top: 30px; font-size: 24px;"}
+::: {.columns}
+::: {.column width=50%}
+- Connect Python to an SQLite database using `sqlalchemy`
 - Use `sqlalchemy` and `pandas` to run SQL queries in Python
-- Use `pandas` to convert files to SQL tables and vice-versa
-- And we also learned how to use Python functions with SQL queries
+- Use `pandas` to convert files to SQL tables (`to_sql`) and read SQL tables (`read_sql`)
+- Structure SQL queries within Python strings
 :::
 
-:::{.column width=50%}
-:::{style="text-align: center; margin-top: -40px;"}
+::: {.column width=50%}
+::: {style="text-align: center; margin-top: -40px;"}
 ![](figures/programmerhumor-io-databases-memes-backend-memes-0f294b9b8612853.webp){width="70%"}
 :::
 :::
@@ -60,19 +60,19 @@ editor:
 
 ## Merge tables in SQL
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-:::{.columns}
-:::{.column width=50%}
-- We will learn how to merge tables in SQL
-- We will use `JOIN` statements to merge tables
-- There are many types of joins, and we will learn the most common ones
-  - `INNER JOIN` and `LEFT JOIN`
-- The syntax is similar to `pandas`' `merge` method
-- We will also learn how to merge tables using `USING` and `ON` clauses
+::: {style="margin-top: 30px; font-size: 22px;"}
+::: {.columns}
+::: {.column width=50%}
+- We will learn how to merge tables in SQL using `JOIN` statements.
+- There are many types of joins, and we will focus on the most common ones:
+  - `INNER JOIN`
+  - `LEFT JOIN` (often the default or most frequently used)
+- The syntax is conceptually similar to `pandas`' `merge` method.
+- We will use the `ON` clause to specify the columns used for joining.
 :::
 
-:::{.column width=50%}
-:::{style="text-align: center;"}
+::: {.column width=50%}
+::: {style="text-align: center;"}
 ![](figures/joins.png)
 :::
 :::
@@ -83,182 +83,207 @@ editor:
 
 ## The `JOIN` statement
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-:::{.columns}
-:::{.column width=50%}
-- The `JOIN` statement is used to combine rows from two or more tables, based on a related column between them (usually a primary key)
-- `JOIN` is very flexible and can be used in many ways for pretty much all types of data merge operations
-- The most common types of joins are:
-  - `INNER JOIN`
-  - `LEFT JOIN`
-  - `RIGHT JOIN`
-  - `FULL JOIN`
-  - `CROSS JOIN`
-  - `SELF JOIN`
-- `LEFT JOIN` is probably the most common type of join
-- You [keep all rows from the left table and only the matching rows from the right table]{.alert}
+::: {style="margin-top: 30px; font-size: 22px;"}
+::: {.columns}
+::: {.column width=50%}
+- The `JOIN` clause combines rows from two or more tables based on a related column between them (often a primary/foreign key relationship).
+- `JOIN` is fundamental for working with relational data spread across multiple tables.
+- Common join types:
+  - `INNER JOIN`: Returns rows only when there is a match in **both** tables.
+  - `LEFT JOIN` (or `LEFT OUTER JOIN`): Returns **all** rows from the left table, and the matched rows from the right table. If there's no match, the result is `NULL` for columns from the right table.
+  - `RIGHT JOIN` (or `RIGHT OUTER JOIN`): Returns **all** rows from the right table, and the matched rows from the left table. `NULL` for left columns if no match. (Less common than `LEFT JOIN`).
+  - `FULL JOIN` (or `FULL OUTER JOIN`): Returns all rows when there is a match in either the left or right table. `NULL`s where there's no match on either side.
 :::
 
-:::{.column width=50%}
-- The syntax is as follows:
-- `SELECT * FROM table1 LEFT JOIN table2 ON table1.column = table2.column`
-- The `ON` clause specifies the condition to join the tables, i.e., the column(s) that are common to both tables
-- The `LEFT JOIN` keyword returns all records from the left table (table1), and the matched records from the right table (table2)
-- The result is `NULL` from the right side if there is no match
-- Let's see an example to make it clearer 😊
+::: {.column width=50%}
+- **Syntax Example (`LEFT JOIN`)**:
+  ```sql
+  SELECT table1.column1, table2.column2...
+  FROM table1 -- This is the "left" table
+  LEFT JOIN table2 -- This is the "right" table
+  ON table1.common_column = table2.common_column;
+  ```
+- The `ON` clause specifies the join condition (how to match rows).
+- `LEFT JOIN` keeps all rows from `table1`. If a row in `table1` doesn't have a matching `common_column` in `table2`, columns selected from `table2` will be `NULL` for that row.
+- Let's see an example! 😊
 :::
 :::
 :::
 
 ## Set up the environment 🛠️ {#sec:environment}
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- Let's start by loading the necessary libraries
-```{python}
+::: {style="margin-top: 30px; font-size: 22px;"}
+- Let's start by loading the necessary libraries and connecting to our SQLite database file.
+
+``` {python}
 #| echo: true
 #| eval: true
 # Load the necessary libraries
 import pandas as pd
-import psycopg2
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, text, inspect # Added inspect
+import sqlite3 # Good to import, though sqlalchemy handles the connection
+import time # For appendix example
 
-# Connect to the database
-engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/postgres')
-conn = engine.connect()
+# Database file path
+db_path = 'lecture20.sqlite'
+# Connect to the SQLite database (will create if doesn't exist)
+engine = create_engine(f'sqlite:///{db_path}')
+
+# It's often better to manage connections per operation or block
+# conn = engine.connect() # We'll create connections as needed
+print(f"SQLAlchemy engine created for {db_path}")
 ```
 
-- Then let's create two tables that we will use to test the `JOIN` clauses
-- Issues with the code? [Please have a look at the appendix](#sec:appendix01)
+- Now, let's create two simple tables to demonstrate `JOIN` clauses. We'll use a context manager (`with engine.connect() as conn:`) which handles opening and closing the connection.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-# Rollback any existing transactions
-conn.rollback()
 
-# Drop the tables if they already exist
-conn.execute(text('DROP TABLE IF EXISTS famous_people CASCADE'))
+# Use a context manager for the connection
+with engine.connect() as conn:
+    # Use a transaction block
+    with conn.begin():
+        # Drop the tables if they already exist (using IF EXISTS is safer)
+        conn.execute(text('DROP TABLE IF EXISTS famous_people'))
+        conn.execute(text('DROP TABLE IF EXISTS information'))
 
-conn.execute(text('DROP TABLE IF EXISTS information CASCADE'))
+        # Create tables in the SQL database
+        conn.execute(text('''
+        CREATE TABLE famous_people (
+            person_id INTEGER PRIMARY KEY, -- In SQLite, INTEGER PRIMARY KEY is often auto-incrementing
+            name TEXT
+        )
+        '''))
 
-# Create tables in the SQL database
-conn.execute(text('''
-CREATE TABLE IF NOT EXISTS famous_people (
-    person_id INTEGER PRIMARY KEY,
-    name TEXT
-)
-'''))
+        conn.execute(text('''
+        CREATE TABLE information (
+            person_id INTEGER,
+            country TEXT,
+            profession TEXT,
+            FOREIGN KEY(person_id) REFERENCES famous_people(person_id) -- Optional: Define foreign key
+        )
+        '''))
 
-conn.execute(text('''
-CREATE TABLE IF NOT EXISTS information (
-    person_id INTEGER,
-    country TEXT,
-    profession TEXT
-)
-'''))
+        # Insert data into the tables
+        conn.execute(text('''
+        INSERT INTO famous_people (person_id, name) VALUES
+          (1, 'Albert Einstein'),
+          (2, 'Isaac Newton'),
+          (3, 'Marie Curie'),
+          (4, 'Galileo Galilei'),
+          (5, 'René Descartes'),
+          (6, 'Blaise Pascal'),
+          (7, 'Nikola Tesla') -- This person won't have matching info
+        '''))
 
-# Insert data into the tables
-conn.execute(text('''
-INSERT INTO famous_people (person_id, name) VALUES 
-  (1, 'Albert Einstein'),
-  (2, 'Isaac Newton'),
-  (3, 'Marie Curie'),
-  (4, 'Galileo Galilei'),
-  (5, 'René Descartes'),
-  (6, 'Blaise Pascal'),
-  (7, 'Nikola Tesla')
-'''))
+        conn.execute(text('''
+        INSERT INTO information (person_id, country, profession) VALUES
+          (1, 'Germany', 'Physicist'),
+          (2, 'United Kingdom', 'Mathematician'),
+          (3, 'Poland', 'Physicist'),
+          (4, 'Italy', 'Astronomer'),
+          (5, 'France', 'Philosopher'),
+          (6, 'France', 'Mathematician')
+          -- Note: No info for person_id 7
+        '''))
+    # The transaction is automatically committed here if no errors occurred
+    print("Tables created and data inserted successfully.")
 
-conn.execute(text('''
-INSERT INTO information (person_id, country, profession) VALUES 
-  (1, 'Germany', 'Physicist'),
-  (2, 'United Kingdom', 'Mathematician'),
-  (3, 'Poland', 'Physicist'),
-  (4, 'Italy', 'Astronomer'),
-  (5, 'France', 'Philosopher'),
-  (6, 'France', 'Mathematician')
-'''))
+# No need for conn.close() when using 'with' statement
+```
+- Issues with the code? [Please have a look at the appendix](#sec:appendix01) for general troubleshooting.
+:::
 
-conn.commit()
-conn.close()
+## Let's see the tables
+
+::: {style="margin-top: 30px; font-size: 20px;"}
+- Let's view the tables we just created using `pd.read_sql`.
+
+``` {python}
+#| echo: true
+#| eval: true
+try:
+    print("--- famous_people ---")
+    df_people = pd.read_sql("SELECT * FROM famous_people", engine)
+    display(df_people)
+
+    print("\n--- information ---")
+    df_info = pd.read_sql("SELECT * FROM information", engine)
+    display(df_info)
+except Exception as e:
+    print(f"Error reading tables: {e}")
 ```
 :::
 
-## Let's see the tables 
+## Error handling notes 🚨 {#sec:error}
 
-:::{style="margin-top: 30px; font-size: 20px;"}
-- Let's see the tables we just created
-
-```{python}
-#| echo: true
-#| eval: true
-# Connect to the database
-conn = engine.connect()
-pd.read_sql_query("SELECT * FROM famous_people", conn)
-```
-
-```{python}
-#| echo: true
-#| eval: true
-pd.read_sql_query("SELECT * FROM information", conn)
-```
+::: {style="margin-top: 30px; font-size: 22px;"}
+::: {.columns}
+::: {.column width=50%}
+- While SQLite is generally simpler than PostgreSQL, you might still encounter issues:
+  - **Locked Database**: If another process is writing to the SQLite file, you might get a "database is locked" error. Ensure only one process modifies the database at a time or use short transactions.
+  - **Syntax Errors**: Double-check your SQL syntax. SQLite's syntax is mostly standard but has minor differences from PostgreSQL.
+  - **File Paths**: Ensure the path to your `.sqlite` file is correct.
+- Using `with engine.connect() as conn:` and `with conn.begin():` (as shown above) helps manage connections and transactions reliably.
 :::
 
-## Error handling 🚨 {#sec:error}
-
-:::{style="margin-top: 30px; font-size: 22px;"}
-:::{.columns}
-:::{.column width=50%}
-- `sqlalchemy` sometimes produces some unexpected behaviours when running SQL queries
-- In my experience, it sometimes fails to run queries that are too long or too complex
-- The worst thing is, [it just keeps running forever without giving any error message!]{.alert} 🤬
-- So if you run a query and it takes too long, or if you suspect it is not working, just interrupt the kernel and try again
-- A good idea is to add `conn.rollback()` before running the query, to make sure the connection is clean
-- If you would like to save the data, it is also a good idea to run `conn.commit()` to make sure the data is saved
-- Then, close the connection to prevent memory leaks with `conn.close()`
-:::
-
-:::{.column width=50%}
-- The bad news is that you have to recreate the connection every time you encounter an error
-- If you typed `conn.commit()`, the table will indeed be in the database, so you won't need to recreate it
-- But if you didn't, you will need to recreate the table and insert the data again
-- So far I haven't found a way to fix this error (it seems to happen quite often with others too), but I will keep looking for a solution 😊
-- Check [this appendix](#sec:appendix01) for a workaround
+::: {.column width=50%}
+- If a query seems stuck or fails:
+  - Interrupt the kernel (`Kernel > Interrupt Kernel` in Jupyter).
+  - Check your SQL query for errors.
+  - Ensure the database file isn't locked by another application (like a GUI SQLite browser).
+  - You might need to delete the `.sqlite` file and rerun the setup code to start fresh if the file becomes corrupted (rare, but possible).
+- See the [appendix](#sec:appendix01) for more tips.
 :::
 :::
 :::
 
 ## Let's join the tables with `LEFT JOIN` 🤝
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- Now that we have the tables, let's join them using the `LEFT JOIN` clause
+::: {style="margin-top: 30px; font-size: 22px;"}
+- Now, let's join `famous_people` (left table) with `information` (right table) using `LEFT JOIN`. We expect all 7 famous people, but Nikola Tesla will have `NULL`s for country and profession.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-pd.read_sql("""
-    SELECT * 
-    FROM famous_people 
-    LEFT JOIN information
-    ON famous_people.person_id = information.person_id
-""", conn)
+query_left_join = text("""
+    SELECT fp.person_id, fp.name, i.country, i.profession -- Use aliases (fp, i) for clarity
+    FROM famous_people fp -- Alias the left table as 'fp'
+    LEFT JOIN information i -- Alias the right table as 'i'
+    ON fp.person_id = i.person_id -- Join condition using aliases
+""")
+
+try:
+    df_left_join = pd.read_sql(query_left_join, engine)
+    display(df_left_join)
+except Exception as e:
+    print(f"Error executing LEFT JOIN: {e}")
+
 ```
 :::
 
 ## Let's join the tables with `INNER JOIN` 🤝
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- Now let's join the tables using the `INNER JOIN` clause
+::: {style="margin-top: 30px; font-size: 22px;"}
+- Now let's use `INNER JOIN`. This will only return rows where `person_id` exists in **both** tables (i.e., Nikola Tesla will be excluded).
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-pd.read_sql("""
-SELECT * 
-FROM famous_people 
-INNER JOIN information 
-ON famous_people.person_id = information.person_id
-""", conn)
+query_inner_join = text("""
+    SELECT fp.person_id, fp.name, i.country, i.profession
+    FROM famous_people fp
+    INNER JOIN information i
+    ON fp.person_id = i.person_id
+""")
+
+try:
+    df_inner_join = pd.read_sql(query_inner_join, engine)
+    display(df_inner_join)
+except Exception as e:
+    print(f"Error executing INNER JOIN: {e}")
+
 ```
 :::
 
@@ -266,122 +291,120 @@ ON famous_people.person_id = information.person_id
 
 ## What is an ERD?
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-:::{.columns}
-:::{.column width=50%}
-- An Entity Relationship Diagram (ERD) is a visual representation of the relationships between entities in a database
-- ERDs are used to model the logical structure of a database
-- Their main function is to indicate which entities (variables) are related to each other and how they are related
-- So they should always indicate the primary keys and foreign keys of the tables
-- A primary key is a unique identifier for each row in a table
-- A foreign key is a column that references the primary key of another table
-- Tables don't need to have a foreign key, but they usually do as it helps to maintain data integrity
+::: {style="margin-top: 30px; font-size: 22px;"}
+::: {.columns}
+::: {.column width=50%}
+- An Entity Relationship Diagram (ERD) visually represents database tables (entities) and the relationships between them.
+- ERDs model the logical structure, showing how data is organized and connected.
+- Key components:
+  - **Entities**: Represent tables (e.g., `famous_people`, `information`).
+  - **Attributes**: Represent columns within tables (e.g., `person_id`, `name`).
+  - **Relationships**: Lines connecting entities, showing how they relate (e.g., one-to-one, one-to-many).
+  - **Keys**: Indicate primary keys (unique identifiers within a table, like `famous_people.person_id`) and foreign keys (columns referencing a primary key in another table, like `information.person_id`).
 :::
 
-:::{.column width=50%}
-:::{style="text-align: center;"}
+::: {.column width=50%}
+::: {style="text-align: center;"}
 [![Click to enlarge](figures/rdb_us_congress.png)]{data-modal-type="image"}
 Click on the image to enlarge
 :::
 
-- For instance, if we have a table with information about members of the US Congress, we could have the following ERD
-- Note the connections between the tables, which indicate the relationships between them
+- This example ERD shows relationships between tables containing US Congress data. The lines and symbols indicate how tables like `us_congress_members` relate to `bills_actions` via shared keys (like `member_id`).
 :::
 :::
 :::
 
 ## Let's see another example with bigger tables 📊
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- This time, we will load two `.csv` files into the database
-- We will then join the tables using the `LEFT JOIN` clause
+::: {style="margin-top: 30px; font-size: 22px;"}
+- We'll load two larger `.csv` files into our SQLite database and then join them.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
 # Load the data
-bills_actions       = pd.read_csv("data_raw/bills_actions.csv")
-us_congress_members = pd.read_csv("data_raw/us_congress_members.csv")
+try:
+    bills_actions = pd.read_csv("data_raw/bills_actions.csv")
+    us_congress_members = pd.read_csv("data_raw/us_congress_members.csv")
+    print("Congress CSV files loaded successfully.")
+except FileNotFoundError as e:
+    print(f"Error loading Congress CSV: {e}")
+    bills_actions, us_congress_members = pd.DataFrame(), pd.DataFrame()
 
-# Recreate the connection
-conn = engine.connect()
+# Use a context manager for database operations
+if not bills_actions.empty and not us_congress_members.empty:
+    with engine.connect() as conn:
+        with conn.begin():
+            # Drop the tables if they already exist
+            conn.execute(text('DROP TABLE IF EXISTS bills_actions'))
+            conn.execute(text('DROP TABLE IF EXISTS us_congress_members'))
 
-# Rollback any existing transactions
-conn.rollback()
+            # Create the tables in the database
+            bills_actions.to_sql("bills_actions", conn, if_exists="replace", index=False)
+            us_congress_members.to_sql("us_congress_members", conn, if_exists="replace", index=False)
+        print("Congress tables created and data inserted.")
+else:
+    print("Skipping Congress table creation due to empty DataFrames.")
 
-# Drop the tables if they already exist
-conn.execute(text('DROP TABLE IF EXISTS bills_actions CASCADE'))
-conn.execute(text('DROP TABLE IF EXISTS us_congress_members CASCADE'))
-conn.commit()
-
-# Create the tables in the database
-bills_actions.to_sql("bills_actions", conn, if_exists="replace", index=False)
-us_congress_members.to_sql("us_congress_members", conn, if_exists="replace", index=False)
-conn.commit()
 ```
 :::
 
-## Let's see the table 📊
+## Let's see the tables 📊
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-```{python}
+::: {style="margin-top: 30px; font-size: 22px;"}
+- Let's quickly check the first few rows of `bills_actions`.
+
+``` {python}
 #| echo: true
 #| eval: true
-# Recreate the connection
-conn = engine.connect()
-
-# Rollback any existing transactions
-conn.rollback()
-
-# Check if the table exists
-pd.read_sql(text('SELECT * FROM bills_actions'), conn).head()
+try:
+    df_bills_head = pd.read_sql(text('SELECT * FROM bills_actions LIMIT 5'), engine)
+    display(df_bills_head)
+except Exception as e:
+    print(f"Error reading bills_actions table: {e}")
 ```
 :::
 
 ## Try it yourself! 🤓 {#sec:exercise01}
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- Download and display the `us_congress_members` dataset from SQL
-- Be sure to use `conn.rollback()` before running the query to clean the connection
-- If you encounter an error, check the [appendix](#sec:appendix01) or ask me for help 😊
+::: {style="margin-top: 30px; font-size: 22px;"}
+- Read and display the first 5 rows of the `us_congress_members` table from the SQLite database.
+- If you encounter an error, check the [appendix](#sec:appendix01) or ask for help 😊.
 - [[Click here to see the solution]{.button}](#sec:appendix02)
 :::
 
 ## Merging the tables 🤝
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-:::{.columns}
-:::{.column width=50%}
-:::{style="text-align: center;"}
+::: {style="margin-top: 30px; font-size: 22px;"}
+::: {.columns}
+::: {.column width=50%}
+::: {style="text-align: center;"}
 [![Click to enlarge](figures/rdb_us_congress.png)]{data-modal-type="image"}
 Click on the image to enlarge
 :::
 :::
 
-:::{.column width=50%}
-- Here `member_id` is the `PRIMARY KEY` of the first dataset
-- We can check that with SQL commands
+::: {.column width=50%}
+- From the ERD, we see `member_id` is the key linking `us_congress_members` to `bills_actions`.
+- Let's verify `member_id` is unique in `us_congress_members` (it should be the primary key).
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-# Recreate the connection
-engine = create_engine('postgresql://postgres:postgres@localhost:5432/postgres')
-conn = engine.connect()
-
-# Rollback any existing transactions
-conn.rollback()
-
-# Check if the table exists and count distinct member_id
-results = pd.read_sql(text('''
+# Check if member_id is unique in us_congress_members
+query_check_pk = text('''
   SELECT COUNT(DISTINCT member_id) AS num_distinct,
-  COUNT(*) AS num_members 
+         COUNT(*) AS num_total
   FROM us_congress_members
-'''), conn)
+''')
+try:
+    results = pd.read_sql(query_check_pk, engine)
+    print(results)
+    is_unique = results['num_distinct'][0] == results['num_total'][0]
+    print(f"Is member_id unique? {is_unique}")
+except Exception as e:
+    print(f"Error checking primary key: {e}")
 
-print(results)
-
-conn.close()
 ```
 :::
 :::
@@ -389,102 +412,42 @@ conn.close()
 
 ## Try it yourself! 🤓 {#sec:exercise02}
 
-:::{style="margin-top: 30px; font-size: 24px;"}
-- Merge two datasets
-- Similar to Python
-- `FROM` is followed by the name of the primary dataset
-- `LEFT` is followed by the name of the secondary dataset
-- `ON` is the id variable used for merging
+::: {style="margin-top: 30px; font-size: 24px;"}
+- **Task**: Join `us_congress_members` (left table) with `bills_actions` (right table) using `member_id`. Select all columns.
+- Use a `LEFT JOIN`.
+- Read the results into a pandas DataFrame and display the head.
+- Remember:
+  - `FROM` specifies the left table.
+  - `LEFT JOIN` specifies the right table.
+  - `ON` specifies the join condition (e.g., `table1.key = table2.key`).
 - [[Click here to see the solution]{.button}](#sec:appendix03)
 :::
 
 ## Appendix 01 - Error handling 🚨 {#sec:appendix01}
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- If you encounter an error when running the code, you can use the following workaround
-- First, you can rollback the transaction to clean the connection
-- Add this before running the query
+::: {style="margin-top: 30px; font-size: 22px;"}
+- **Database Locked**: If you get a "database is locked" error, another program or process might be accessing the file. Close other SQLite tools or wait for the other process to finish. Using `with engine.connect()...` helps minimize lock times.
+- **Table Not Found**: Ensure you ran the `to_sql` or `CREATE TABLE` code successfully before trying to query the table. Check for typos in table names.
+- **Syntax Errors**: Carefully check your SQL query syntax. Online SQL validators or the VSCode SQLite extension can help.
+- **Starting Fresh**: If the database file seems corrupted or you want a clean slate, simply delete the `lecture20.sqlite` file from your file explorer and rerun the setup code (the section marked "Set up the environment").
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: false
-conn.rollback()
-```
-
-- If you want to save the data, you can commit the transaction
-- Add this after running the query
-
-```{python}
-#| echo: true
-#| eval: false
-conn.commit()
-```
-
-- Finally, close the connection to prevent memory leaks
-
-```{python}
-#| echo: true
-#| eval: false
-conn.close()
-```
-:::
-
-## Appendix 01 - Error handling 🚨 
-
-:::{style="margin-top: 30px; font-size: 22px;"}
-- If everything else fails, you can drop all tables and recreate them
-- This code will clean your database
-
-```{python}
-#| echo: true
-#| eval: false
-from sqlalchemy import create_engine, text, inspect
-import time
-
-engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/postgres', future=True)
-connection = engine.connect()
-
-def clean_database(engine):
+# Example: Function to delete and recreate tables (use with caution!)
+def reset_tables(engine):
+    print("Attempting to reset tables...")
     with engine.connect() as conn:
-        try:
-            # Get inspector to check existing tables
-            inspector = inspect(engine)
-            existing_tables = inspector.get_table_names()
-            
-            if not existing_tables:
-                print("No tables found in database")
-                return
-                
-            print(f"Found {len(existing_tables)} tables: {existing_tables}")
-            
-            # Kill other connections
-            conn.execute(text("""
-                SELECT pg_terminate_backend(pid) 
-                FROM pg_stat_activity 
-                WHERE pid <> pg_backend_pid()
-                AND datname = current_database()
-            """))
-            
-            conn.execute(text("ROLLBACK"))
-            conn.execute(text("SET statement_timeout = '30s'"))
-            
-            # Only drop tables that exist
-            for table in existing_tables:
-                try:
-                    conn.execute(text(f"DROP TABLE IF EXISTS {table} CASCADE"))
-                    print(f"Dropped {table}")
-                    conn.commit()
-                    time.sleep(1)
-                except Exception as e:
-                    print(f"Error with {table}: {str(e)}")
-                    conn.execute(text("ROLLBACK"))
-                    
-        except Exception as e:
-            print(f"Fatal error: {str(e)}")
-            conn.execute(text("ROLLBACK"))
+        with conn.begin():
+            conn.execute(text('DROP TABLE IF EXISTS famous_people'))
+            conn.execute(text('DROP TABLE IF EXISTS information'))
+            conn.execute(text('DROP TABLE IF EXISTS bills_actions'))
+            conn.execute(text('DROP TABLE IF EXISTS us_congress_members'))
+    print("Tables dropped.")
+    # You would then call the setup code again here
+    # setup_environment(engine) # Assuming setup code is in a function
 
-# Execute
-clean_database(engine)
+# reset_tables(engine) # Call this function if needed
 ```
 
 [[Back to the lecture]{.button}](#sec:error)
@@ -492,70 +455,61 @@ clean_database(engine)
 
 ## Appendix 02 {#sec:appendix02}
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- Download and display the `us_congress_members` dataset from SQL
+::: {style="margin-top: 30px; font-size: 22px;"}
+- Read and display the first 5 rows of the `us_congress_members` table.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-# Recreate the connection
-conn = engine.connect()
+try:
+    query_members = text('SELECT * FROM us_congress_members LIMIT 5')
+    df_members_head = pd.read_sql(query_members, engine)
+    display(df_members_head)
+except Exception as e:
+    print(f"Error reading us_congress_members table: {e}")
 
-# Rollback any existing transactions
-conn.rollback()
-
-# Drop the tables if they already exist
-conn.execute(text('''
-DROP TABLE IF EXISTS us_congress_members CASCADE
-'''))
-conn.commit()
-
-# Import "races"
-us_congress_members.to_sql('us_congress_members', 
-             con = conn, 
-             if_exists='replace',
-             index=False)
-
-conn.commit()
-
-# Check if the table exists
-pd.read_sql_query("SELECT * FROM us_congress_members", conn)
 ```
 
-[[Back to the lecture]{.button}](#sec:exercise01)
+[[Back to exercise]{.button}](#sec:exercise01)
 :::
 
 ## Appendix 03 {#sec:appendix03}
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- Merge two datasets
-- Similar to Python
-- `FROM` is followed by the name of the primary dataset
-- `LEFT` is followed by the name of the secondary dataset
-- `ON` is the id variable used for merging
-- Here we are merging the `us_congress_members` dataset with the `bills_actions` dataset
+::: {style="margin-top: 30px; font-size: 22px;"}
+- Join `us_congress_members` (left) with `bills_actions` (right) on `member_id`.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-# Restart the connection
-conn = engine.connect()
+query_merge = text('''
+    SELECT * -- Select all columns from both tables
+    FROM us_congress_members m -- Alias left table as 'm'
+    LEFT JOIN bills_actions b -- Alias right table as 'b'
+    ON m.member_id = b.member_id -- Join condition
+''')
 
-# Rollback any existing transactions
-conn.rollback()
+try:
+    df_merged = pd.read_sql(query_merge, engine)
+    display(df_merged.head())
+    print(f"Merged DataFrame shape: {df_merged.shape}")
+except Exception as e:
+    print(f"Error executing merge query: {e}")
 
-# Merge the tables
-results = pd.read_sql('''
-SELECT *
-FROM us_congress_members
-LEFT JOIN bills_actions
-ON us_congress_members.member_id = bills_actions.member_id
-''', conn)
-
-print(results.head())
-
-conn.close()
 ```
 
-[[Back to the lecture]{.button}](#sec:exercise02)
+[[Back to exercise]{.button}](#sec:exercise02)
+:::
+
+# Closing the connection (Good Practice)
+
+::: {style="margin-top: 30px; font-size: 20px;"}
+- When you are completely finished with the database in your script or application session, dispose of the engine to release resources.
+
+``` {python}
+#| echo: true
+#| eval: true
+if 'engine' in locals() and engine is not None:
+    engine.dispose()
+    print("SQLAlchemy engine disposed.")
+```
 :::

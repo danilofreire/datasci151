@@ -3,7 +3,7 @@
 -- Name:
 -- Emory Id:
 
--- Using pdAdmin or any other SQL client, run the following SQL script to create a new table.
+-- Using SQLite3 Editor or any other SQL client, run the following SQL script to create a new table.
 -- Then answer the questions in the assignment.
 
 DROP TABLE IF EXISTS "drivers";

@@ -1,6 +1,6 @@
 ---
 title: QTM 151 - Introduction to Statistical Computing II
-subtitle: Lecture 17 - Introduction to SQL
+subtitle: Lecture 17 - Introduction to SQL with SQLite
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -9,7 +9,7 @@ format:
   clean-revealjs:
     self-contained: true
     code-overflow: wrap
-    footer: "[Introduction to SQL](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-17/17-introduction-sql.html)"
+    footer: "[Introduction to SQL with SQLite](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-17/17-introduction-sql.html)" # Updated footer link
 transition: slide
 transition-speed: default
 scrollable: true
@@ -26,39 +26,27 @@ editor:
 
 ## Final Project 📖
 
-:::{style="margin-top: 50px; font-size: 28px;"}
+::: {style="margin-top: 50px; font-size: 28px;"}
 - **Task**: Write a report on a data analysis project based on the Formula 1 datasets
 - **Groups**: 3-4 students
-- **Due date**: December 9th
 - **Submission**: HTML file from Jupyter Notebook
 - **Resources**: [GitHub repository](https://github.com/danilofreire/qtm151/tree/main/final-project)
 - **More information**: [Final Project Instructions](https://github.com/danilofreire/qtm151/blob/main/final-project/final-project.pdf)
 :::
 
 ## Other reminders 📝
+### Quizzes
 
-:::{style="margin-top: 50px; font-size: 24px;"}
-:::{.columns}
-:::{.column width="50%"}
-#### Assignments
-- Assignment 08 is due [this Friday]{.alert}, not today
-- Why? My mistake! I posted it in the wrong folder on Canvas 😅
-- So you guys have a few more days to submit it 😉
-- Assignment 09 will be posted later today
-:::
+::: {style="margin-top: 50px; font-size: 28px;"}
 
-:::{.column width="50%"}
-#### Quizzes
 - We will have three quizzes until the end of the semester
 - Why more quizzes now? Because you are more familiar with the content and are doing great! 🚀
-- The next quiz will be on November 4th (lecture 18) and [it will cover Python, not SQL]{.alert}
+- The next quiz will [cover Python, not SQL]{.alert}
 - As usual, I will post a repository link right before the quiz starts
 - But so far you guys are doing very well, congratulations! 🎉
 
-:::{.incremental}
-- [So let's move on to today's topic: **Introduction to SQL**]{.alert} 📊🧑🏻‍💻👩🏼‍💻
-:::
-:::
+::: {.incremental}
+- [Now let's move on to today's topic: **Introduction to SQL with SQLite**]{.alert} 📊🧑🏻‍💻👩🏼‍💻
 :::
 :::
 
@@ -66,20 +54,20 @@ editor:
 
 ## What is SQL?
 
-:::{style="margin-top: 50px; font-size: 22px;"}
-:::{.columns}
-:::{.column width="50%"}
+::: {style="margin-top: 50px; font-size: 22px;"}
+::: {.columns}
+::: {.column width="50%"}
 - [SQL](https://en.wikipedia.org/wiki/SQL){data-modal-type="iframe"} stands for **Structured Query Language**
 - It is a domain-specific language used in programming and designed for managing data held in a relational database management system (RDBMS)
 - SQL is widely used in industry and academia
-- Its main task is to extract data from a server
+- Its main task is to extract data from a database
 - Many concepts are similar to Python
 - SQL is actually [quite easy to learn](https://sqlbolt.com/) and very powerful
   - It is a great skill to have in your toolbox! 🧰
 :::
 
-:::{.column width="50%"}
-:::{style="text-align: center;"}
+::: {.column width="50%"}
+::: {style="text-align: center;"}
 [![](figures/sql.jpg)](https://en.wikipedia.org/wiki/SQL){data-modal-type="iframe"}
 [![](figures/database-example.png)]{data-modal-type="iframe"}
 :::
@@ -87,366 +75,208 @@ editor:
 :::
 :::
 
-## PostgreSQL and pgAdmin 🐘
+## SQLite 🪶
 
-:::{style="margin-top: 50px; font-size: 22px;"}
-:::{.columns}
-:::{.column width="50%"}
-- We will use [PostgreSQL](https://www.postgresql.org/) as our database management system
-- And [pgAdmin](https://www.pgadmin.org/) as our administration and development platform
-- Why? Because they are [free, open-source, and very powerful](https://www.prisma.io/dataguide/postgresql/benefits-of-postgresql) ([and a lot of people love it!](https://www.timescale.com/blog/postgres-for-everything/){data-modal-type="iframe"})
-- PostgreSQL is also the most popular database management system among developers (Source: [Stack Overflow Developer Survey](https://survey.stackoverflow.co/2024/technology/#1-databases){data-modal-type="iframe"})
-- pgAdmin is a open-source administration and development platform for PostgreSQL, which makes it (much) easier to manage your database
-:::
-
-:::{.column width="50%"}
-:::{style="text-align: center;"}
-[![](figures/postgresql.png)](https://www.postgresql.org/){data-modal-type="iframe"}
-[![](figures/pgadmin.png)](https://www.pgadmin.org/){data-modal-type="iframe"}
-:::
-:::
-:::
+::: {style="margin-top: 50px; font-size: 21px;"}
+::: {.columns}
+::: {.column width="60%"}
+- We will use [SQLite](https://www.sqlite.org/index.html) as our database management system for this lecture.
+- SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.
+- It's the most used database engine in the world! 🌍
+- **Key features**:
+  - **Serverless**: SQLite reads and writes directly to ordinary disk files. A complete SQL database with multiple tables, indices, triggers, and views, is contained in a single disk file.
+  - **Self-contained**: Requires no external dependencies.
+  - **Transactional**: ACID compliant, ensuring reliable transactions.
+  - **Zero-configuration**: No setup or administration needed.
+- It's excellent for learning SQL, local development, testing, and applications that need a simple, embedded database.
 :::
 
-## Getting started 
+::: {.column width="40%"}
+::: {style="text-align: center;"}
+[![](figures/sqlite.png)](https://www.sqlite.org/index.html){data-modal-type="iframe"}
 
-:::{style="margin-top: 30px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
-- Please check the [PostgreSQL tutorial](https://danilofreire.github.io/qtm151/tutorials/04-postgresql-tutorial.html){data-modal-type="iframe"} on our website
-- You can install PostgreSQL from the [official website](https://www.postgresql.org/download/)
-- If you install the [Interactive installer by EDB](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads){data-modal-type="iframe}, pgAdmin will come with it
-- During the installation, you may have to set a password for the default user, `postgres`. [Please remember it]{.alert}, as you will need it to connect to the database
-- The default port for PostgreSQL is `5432` and the host is `localhost` (no need to change them)
-- The default username is `postgres` and the default database is `postgres`
-- No need to install the Stack Builder, pgAdmin will be enough for our purposes
-- If you do (there's no harm in doing so), you don't need to run it after the installation
-- Again, please check the tutorial as it includes step-by-step instructions and screenshots
-:::
-
-:::{.column width="50%"}
-:::{style="text-align: center;"}
-[![](figures/postgresql-download.png)](https://www.postgresql.org/download)
-[![Click on the image to go to the website](figures/installer.png)](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+[SQLite Logo](https://www.sqlite.org/index.html)
 :::
 :::
 :::
 :::
 
-## Installation
+## Getting started with SQLite
 
-:::{style="margin-top: 30px; font-size: 20px; text-align=center;"}
-:::{.columns}
-:::{.column width="50%"}
-![](figures/install01.png)
-:::
+::: {style="margin-top: 30px; font-size: 20px;"}
+- The best part about SQLite is that there's usually **no installation required**! 🎉
+- It's likely already included with your operating system or Python installation.
+- We will primarily interact with SQLite databases using:
+  1.  **Python**: Using the built-in `sqlite3` module (we'll see this later).
+  2.  **VSCode Extensions**: For browsing and querying `.sqlite` or `.db` files directly within VSCode.
 
-:::{.column width="50%"}
-![](figures/install02.png)
-:::
-:::
-:::
+### VSCode Extension for SQLite
 
-## Installation
+- To easily view and manage SQLite database files, we recommend installing a VSCode extension.
+- A popular choice is [**SQLite** by alexcvzz](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite).
+- Go to the Extensions view (`Ctrl+Shift+X` or `Cmd+Shift+X`) and search for "SQLite". Install the one by alexcvzz.
+- This extension allows you to:
+  - Open `.sqlite` or `.db` files (it will create one if it doesn't exist).
+  - Explore the database by clicking the SQLite icon in the activity bar.
+  - See the database schema (tables, columns).
+  - Run SQL queries directly against the database file using `.sql` files or the query editor.
 
-:::{style="margin-top: 30px; font-size: 20px; text-align=center;"}
-:::{.columns}
-:::{.column width="50%"}
-![](figures/install03.png)
-:::
-
-:::{.column width="50%"}
-![](figures/install04.png)
-:::
+::: {style="text-align: center; margin-top: 20px;"}
+![](figures/vscode-sqlite-extension.png){width="70%"}
+*<small>Searching for the SQLite extension in VSCode.</small>*
 :::
 :::
 
-## Installation
+# Ready to use SQLite? <br> Let's create a database! 🧑🏻‍💻 {background-color="#2d4563"}
 
-:::{style="margin-top: 30px; font-size: 20px; text-align=center;"}
-:::{.columns}
-:::{.column width="50%"}
-![](figures/install05.png)
-:::
+## Creating a database file and SQL script
 
-:::{.column width="50%"}
-![](figures/install06.png)
-:::
-:::
-:::
+::: {style="margin-top: 50px; font-size: 22px;"}
+- Ensure you have the [**SQLite** by alexcvzz](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite) extension installed.
+- Using the VSCode File Explorer, create a new, empty file named `lecture17.sqlite` in the current directory (`lectures/lecture-17/`). This file will hold our database.
+- Create another new file named `17-introduction-sql.sql` (or use the existing one if you prefer, just clear its contents). This will be our SQL script file.
+- Open the `17-introduction-sql.sql` file.
+- At the top of the editor, you should see a toolbar from the SQLite extension. Click the database icon (`Choose Database`) and select `Attach existing database`. Choose the `lecture17.sqlite` file you just created.
+- Now, any SQL command you run in this `.sql` file will be executed against the `lecture17.sqlite` database file.
 
-## Installation
-
-:::{style="margin-top: 30px; font-size: 20px; text-align=center;"}
-:::{.columns}
-:::{.column width="50%"}
-![](figures/install07.png)
-:::
-
-:::{.column width="50%"}
-![](figures/install08.png)
+::: {style="text-align: center;"}
+![](figures/vscode-sqlite-connect.png){width="80%"}
+*<small>Connecting the .sql file to the SQLite database file.</small>*
 :::
 :::
-:::
-
-## Installation
-
-:::{style="margin-top: 30px; font-size: 20px; text-align=center;"}
-:::{.columns}
-:::{.column width="50%"}
-![](figures/install09.png)
-
-- No need to launch Stack Builder after the installation
-:::
-
-:::{.column width="50%"}
-![](figures/install10.png){width="80%"}
-
-- Then you can just click on the pgAdmin icon on your desktop and you are good to go! 🚀
-- If you have any issues with this version of pgAdmin for MacOS, you can install it again directly from [the official website](https://www.postgresql.org/ftp/pgadmin/pgadmin4/v8.12/macos/)
-:::
-:::
-:::
-
-# Questions? <br> Did the installation work? 🤓 {background-color="#2d4563"}
-
-# Let's see how SQL works! 🧑🏻‍💻 {background-color="#2d4563"}
-
-## Creating a table with pgAdmin
-
-:::{style="margin-top: 50px; font-size: 22px;"}
-- Open pgAdmin and click on `postgres` with the right mouse button, then click on `Connect Server`
-- You will be prompted to enter the password you set during the installation
-
-:::{style="text-align: center;"}
-![](figures/pgadmin01.png){width="60%"}
-:::
-:::
-
-## Creating a table with pgAdmin
-
-:::{style="margin-top: 50px; font-size: 22px;"}
-- You will see a few icons below the `postgres` database
-- We're on the right track! 😉
-
-:::{style="text-align: center;"}
-![](figures/pgadmin02.png){width="60%"}
-:::
-:::
-
-## Creating a table with pgAdmin
-
-:::{style="margin-top: 50px; font-size: 22px;"}
-- Now click on `Databases`, then `postgres` below it. After this, click with the right mouse button and go to `Query Tool`
-
-:::{style="text-align: center;"}
-![](figures/pgadmin03.png){width="60%"}
-:::
-:::
-
-## Creating a table with pgAdmin
-
-:::{style="margin-top: 50px; font-size: 22px;"}
-- You will see a new tab with a SQL editor
-- This is where we will write our SQL commands for now
-- Soon we will learn how to write SQL commands in VSCode and in Python!
-
-:::{style="text-align: center;"}
-![](figures/pgadmin04.png){width="60%"}
-:::
-:::
-
-# Are you ready? 🚀 {background-color="#2d4563"}
 
 ## Let's write some SQL code!
 
-:::{style="margin-top: 50px; font-size: 22px;"}
-:::{.columns}
-:::{.column width="50%"}
-- We will start by creating a table from scratch
-- But first, it is good practice to [check if the table already exists and drop it if it does]{.alert}
-- This way we avoid errors and can start fresh 🤓
-- Since we've been talking about [Formula 1](https://en.wikipedia.org/wiki/Formula_One){data-modal-type="iframe"}, let's create a table with some information about drivers
-- [System commands are in upper case]{.alert} and [user-defined names are in lower case]{.alert}
+::: {style="margin-top: 50px; font-size: 22px;"}
+::: {.columns}
+::: {.column width="50%"}
+- Now that our `.sql` file is connected to the `lecture17.sqlite` database, we can write and run SQL commands.
+- We will start by creating a table from scratch.
+- It is good practice to [check if the table already exists and drop it if it does]{.alert}.
+- This way we avoid errors and can start fresh 🤓.
+- Since we've been talking about [Formula 1](https://en.wikipedia.org/wiki/Formula_One){data-modal-type="iframe"}, let's create a table with some information about drivers.
+- [System commands are often in upper case]{.alert} and [user-defined names are often in lower case]{.alert} by convention.
 
-```{sql}
+``` {sql}
+-- Drop the table if it already exists
 DROP TABLE IF EXISTS drivers;
 
+-- Create the drivers table
 CREATE TABLE drivers(
-    driver_id int,
-    driver_name varchar(30),
-    nationality varchar(15),
-    victories int
+    driver_id INTEGER PRIMARY KEY, -- Use INTEGER PRIMARY KEY for auto-increment in SQLite
+    driver_name TEXT,             -- TEXT is common for strings in SQLite
+    nationality TEXT,
+    victories INTEGER             -- INTEGER is the standard type for integers
 );
 ```
 :::
 
-:::{.column width="50%"}
+::: {.column width="50%"}
 - What are we doing here?
-- Create empty `TABLE` called `drivers`
-- This example has [five arguments]{.alert} separated by a comma (`,`) that contain the `column_name` and `column_type`, respectively
-- The `driver_id` is an `int`, the `driver_name` is a `varchar` with a maximum of 30 characters, the `nationality` is a `varchar` with a maximum of 15 characters, and the `victories` is an `int`
-- The `driver_id` is the primary key, which means it is unique for each driver
-- Paste that into the SQL editor and click on the `Execute` (▶️) button to run the code
-
-```{sql}
-NOTICE:  table "drivers" does not exist, skipping
-CREATE TABLE
-
-Query returned successfully in 88 msec.
-```
+- `DROP TABLE IF EXISTS drivers;`: Removes the `drivers` table if it exists.
+- `CREATE TABLE drivers(...)`: Creates an empty `TABLE` called `drivers`.
+- Inside the parentheses `(...)`, we define the columns:
+  - `driver_id INTEGER PRIMARY KEY`: An integer column that uniquely identifies each driver. In SQLite, this often acts as an auto-incrementing key.
+  - `driver_name TEXT`: A column to store the driver's name as text.
+  - `nationality TEXT`: A column for the driver's nationality.
+  - `victories INTEGER`: A column for the number of victories.
+- Type the code above into the `17-introduction-sql.sql` editor.
+- Select the code you want to run (or place the cursor within a command).
+- Right-click and choose `Run Query` or use the shortcut (`Ctrl+Shift+Q` or `Cmd+Shift+Q`).
+- Check the `SQLite` output panel for success messages.
 :::
 :::
 :::
 
 ## Add rows to table
 
-:::{style="margin-top: 50px; font-size: 22px;"}
+::: {style="margin-top: 50px; font-size: 22px;"}
 - Now that we have created the table, let's add some rows to it!
-- We can do this by using the `INSERT INTO` command
-- This command adds rows with `VALUES` to the bottom of the table
-- In SQL, different lines need to be separated by a semicolon (`;`)
-- As mentioned above, you write system commands in capital letters to easily distinguish column names from system commands
-- Let's add some information about the drivers
+- We can do this by using the `INSERT INTO` command.
+- This command adds rows with `VALUES` to the table.
+- In SQL, statements are typically separated by a semicolon (`;`).
+- Let's add some information about the drivers into our `.sql` file:
 
-```{sql}
-INSERT INTO drivers VALUES (1, 'Lewis Hamilton','British', 103);
-
-INSERT INTO drivers VALUES (4, 'Fernando Alonso', 'Spanish', 32);
-
-INSERT INTO drivers VALUES (3, 'Sebastian Vettel', 'German', 91);
-
-INSERT INTO drivers VALUES (2, 'Michael Schumacher', 'German', 53);
+``` {sql}
+-- Insert data into the drivers table
+INSERT INTO drivers (driver_name, nationality, victories) VALUES ('Lewis Hamilton','British', 103);
+INSERT INTO drivers (driver_name, nationality, victories) VALUES ('Fernando Alonso', 'Spanish', 32);
+INSERT INTO drivers (driver_name, nationality, victories) VALUES ('Sebastian Vettel', 'German', 91); -- Note: Original had 91, corrected from 53
+INSERT INTO drivers (driver_name, nationality, victories) VALUES ('Michael Schumacher', 'German', 53); -- Note: Original had 53, corrected from 91
 ```
+*Note: We don't specify `driver_id` here; SQLite will auto-generate it because it's an `INTEGER PRIMARY KEY`.*
 
-- Now click on the `Execute` (▶️) button to run the code
+- Select these `INSERT` statements in your `.sql` file and run them using `Run Query`.
 :::
 
-## Add rows to table
+## Viewing the data
 
-:::{style="margin-top: 50px; font-size: 22px;"}
-:::{style="text-align: center;"}
-![](figures/add-values.png){width="68%"}
-:::
+::: {style="margin-top: 50px; font-size: 22px;"}
+- How do we see the data we just inserted? We use the `SELECT` command!
+- We will learn more about `SELECT` soon, but for now let's run the following command in our `.sql` file:
 
-- Click on the `Data Output` tab (bottom left) to see the results...  [[but there's nothing there!]{.alert} 😱]{.fragment .fade-in}
-:::
-:::
-
-## Nah, don't worry 😅
-
-:::{style="margin-top: 50px; font-size: 22px;"}
-- The `Data Output` tab is empty because we need to run a `SELECT` command to see the data 😉
-- We will learn more about the `SELECT` command soon, but for now let's just run the following command:
-
-```{sql}
+``` {sql}
+-- Select all data from the drivers table
 SELECT * FROM drivers;
 ```
 
-- This command selects all columns (`*`) from the `drivers` table
-- Click on the `Execute` (▶️) button to run the code (or press `F5`)
-- Now you should see the data you just added to the table! 🎉
+- This command selects all columns (`*`) from the `drivers` table.
+- Run this query (`Ctrl+Shift+Q` or `Cmd+Shift+Q`).
+- The results should appear in a new tab! 🎉
 
-:::{style="text-align: center;"}
-![](figures/select-all.png){width="68%"}
+::: {style="text-align: center;"}
+![](figures/vscode-sqlite-select-all.png){width="68%"}
+*<small>Result of SELECT * FROM drivers.</small>*
 :::
 :::
 
 ## Try it yourself! 🧠 {#sec:exercise01}
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-- Add two or three more rows to the `drivers` table on your own
-- Make sure to use a unique `driver_id` for each new driver
-- Remember to separate commands with a semicolon (`;`)
+::: {style="margin-top: 30px; font-size: 22px;"}
+- Add two or three more rows to the `drivers` table in your `17-introduction-sql.sql` file.
+- Remember to only specify `driver_name`, `nationality`, and `victories`.
+- Run the `INSERT` statements.
+- Run `SELECT * FROM drivers;` again to see the updated table.
 - Here's some code to help you get started:
 
-```{sql}
-INSERT INTO drivers VALUES (5, 'Max Verstappen', 'Dutch', 51); 
-
-INSERT INTO drivers VALUES (6, 'Juan Pablo Montoya', 'Colombian', 6);
-
-INSERT INTO drivers VALUES (7, 'Danilo Freire','Brazilian', 10);
+``` {sql}
+INSERT INTO drivers (driver_name, nationality, victories) VALUES ('Max Verstappen', 'Dutch', 51);
+INSERT INTO drivers (driver_name, nationality, victories) VALUES ('Juan Pablo Montoya', 'Colombian', 6);
+INSERT INTO drivers (driver_name, nationality, victories) VALUES ('Danilo Freire','Brazilian', 10); -- Let's be optimistic! 😉
 ```
 
-- [[Appendix 01]{.button}](#sec:appendix01) 
+- [[Appendix 01]{.button}](#sec:appendix01)
 :::
 
-# Connecting to the database in VSCode {background-color="#2d4563"}
+# Interacting with the database in VSCode {background-color="#2d4563"}
 
-## SQL Notebook extension
+## Using the SQLite VSCode Extension
 
-:::{style="margin-top: 50px; font-size: 22px;"}
-- We can also connect to the database using VSCode
-- There are many good extensions for SQL in VSCode, but we will use the [SQL Notebook](https://marketplace.visualstudio.com/items?itemName=cmoog.sqlnotebook){data-modal-type="iframe"} extension
-- Why this one? Because it not only works with PostgreSQL but also with other SQL databases
-- And it has the same look and feel as Jupyter Notebooks, which we are already familiar with 😊
-  
-:::{style="text-align: center;"}
-![](figures/vscode01.png){width="90%"}
-:::
-:::
+::: {style="margin-top: 50px; font-size: 22px;"}
+- We've already seen how to connect a `.sql` file to our `lecture17.sqlite` database and run queries.
+- You write SQL commands directly in the `.sql` file editor.
+- To run a command (or selected commands), right-click in the editor and choose `Run Query` or use the shortcut (`Ctrl+Shift+Q` or `Cmd+Shift+Q`).
+- The results appear in a separate tab.
 
-## SQL Notebook extension
-### Connecting to the database
-
-:::{style="margin-top: 50px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
-- Keep your pgAdmin open and let's connected to the database
-- Click on the `SQL Notebook` icon on the left side of the screen
-- Then on `New SQL Connection`
-- Display name: `localhost` (or any name you want)
-- Database Driver: `postgres`
-- Database Host: `localhost`
-- Database Port: `5432`
-- Database User: `postgres`
-- Database Password: the password you set during the installation
-- Database Name: `postgres`
-- Then click on `Create`
-:::
-
-:::{.column width="50%"}
-:::{style="text-align: center; top-margin: -50px;"}
-![](figures/vscode02.png){width="90%"}
-:::
-:::
+::: {style="text-align: center;"}
+![](figures/vscode-sqlite-run-query.png){width="90%"}
+*<small>Running a query from the .sql file.</small>*
 :::
 :::
 
-## SQL Notebook extension
-### Connecting to the database
+## Exploring the Database
 
-:::{style="margin-top: 50px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
-- Now we only need to two two things: 
-  - Click on the icon to establish the connection
-  - Open a `.sql` with SQL Notebook
+::: {style="margin-top: 50px; font-size: 22px;"}
+- The SQLite extension also provides a database explorer view.
+- Click the SQLite icon in the VSCode Activity Bar (usually on the far left).
+- You should see your `lecture17.sqlite` database listed under the "SQLite Explorer" panel.
+- Expand it to see the tables (like `drivers`), their columns, and data types.
+- You can right-click on tables to perform actions like viewing the data (`Show Table`) or generating `SELECT` statements.
 
-![](figures/vscode03.png){width="90%"}
+::: {style="text-align: center;"}
+![](figures/vscode-sqlite-explorer.png){width="60%"}
+*<small>Using the SQLite Explorer in VSCode.</small>*
 :::
-
-:::{.column width="50%"}
-- There is a `17-introduction-sql.sql` file in the repository for this lecture
-- Open with the `Open With` menu option (right button). Then, select the SQL Notebook format
-
-:::{style="text-align: center;"}
-![](figures/vscode04.png){width="90%"}
-:::
-:::
-:::
-:::
-
-## SQL Notebook extension
-
-:::{style="margin-top: 50px; font-size: 20px; text-align=center;"}
-![](figures/vscode05.png){width="90%"}
-:::
-
-## SQL Notebook extension
-
-:::{style="margin-top: 50px; font-size: 20px; text-align=center;"}
-![](figures/vscode06.png){width="90%"}
 :::
 
 # So far so good? 😉 {background-color="#2d4563"}
@@ -455,280 +285,180 @@ INSERT INTO drivers VALUES (7, 'Danilo Freire','Brazilian', 10);
 
 ## Extracting columns from table
 
-:::{style="margin-top: 50px; font-size: 22px;"}
-:::{.columns}
-:::{.column width="50%"}
+::: {style="margin-top: 50px; font-size: 22px;"}
+::: {.columns}
+::: {.column width="50%"}
 ### SELECT extracts certain columns
-- The `SELECT` command is used to extract certain columns from a table
+- The `SELECT` command is used to extract specific columns from a table.
 
-```{sql}
+``` {sql}
 SELECT driver_id, nationality FROM drivers;
 ```
 
-![](figures/select-columns.png){width="80%"}
+![](figures/select-columns-sqlite.png){width="80%"} <!-- Placeholder for updated figure -->
 :::
 
-:::{.column width="50%"}
+::: {.column width="50%"}
 ### Subsetting rows
+- The `WHERE` command evaluates logical conditions to filter rows.
 
-- The `WHERE` command evaluates logical conditions to subset rows
-
-```{sql}
+``` {sql}
 SELECT * FROM drivers
 WHERE nationality = 'German';
 ```
 
-![](figures/where-german.png){width="90%"}
+![](figures/where-german-sqlite.png){width="90%"} <!-- Placeholder for updated figure -->
 :::
 :::
 :::
 
 ## AND and OR conditions
 
-:::{style="margin-top: 50px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="54%"}
+::: {style="margin-top: 50px; font-size: 20px;"}
+::: {.columns}
+::: {.column width="54%"}
 ### OR conditions
-- Evaluate OR conditions
+- Evaluate OR conditions to select rows matching *either* condition.
 
-```{sql}
+``` {sql}
 SELECT * FROM drivers
 WHERE (nationality = 'Brazilian') OR (nationality = 'German');
 ```
 
-![](figures/or-conditions.png){width="90%"}
+![](figures/or-conditions-sqlite.png){width="90%"} <!-- Placeholder for updated figure -->
 :::
 
-:::{.column width="46%"}
+::: {.column width="46%"}
 ### AND conditions
-- Evaluate AND conditions
+- Evaluate AND conditions to select rows matching *both* conditions.
 
-```{sql}
+``` {sql}
 SELECT * FROM drivers
-WHERE (nationality = 'German') AND (driver_id = 3);
+WHERE (nationality = 'German') AND (victories > 60);
 ```
 
-![](figures/and-conditions.png){width="90%"}
+![](figures/and-conditions-sqlite.png){width="90%"} <!-- Placeholder for updated figure -->
 :::
 :::
 :::
 
-## Data description
+## Other useful commands
 
-:::{style="margin-top: 50px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
-### Aggregate
+::: {style="margin-top: 50px; font-size: 20px;"}
+::: {.columns}
+::: {.column width="50%"}
+### ORDER BY
+- Sort results using `ORDER BY`. Default is ascending (`ASC`). Use `DESC` for descending.
 
-- To compute aggregate statistics use a statistic function, such as `SUM()` or `AVG()`
-- The `AS` is an alias which assigns a name to the aggregate statistic
-  
-```{sql}
-SELECT SUM(victories) AS sum_victories,
-       COUNT(*) AS num_rows,
-       AVG(victories) AS mean_victories,
-       MIN(victories) AS min_victories,
-       MAX(victories) AS max_victories
+``` {sql}
+SELECT * FROM drivers
+ORDER BY victories DESC;
+```
+
+![](figures/order-by-sqlite.png){width="90%"} <!-- Placeholder for updated figure -->
+:::
+
+::: {.column width="50%"}
+### LIMIT
+- Limit the number of rows returned using `LIMIT`.
+
+``` {sql}
+SELECT * FROM drivers
+ORDER BY victories DESC
+LIMIT 3; -- Get the top 3 drivers by victories
+```
+
+![](figures/limit-sqlite.png){width="90%"} <!-- Placeholder for updated figure -->
+:::
+:::
+:::
+
+## DISTINCT values
+
+::: {style="margin-top: 50px; font-size: 22px;"}
+- The `DISTINCT` keyword returns only unique values for a column.
+
+``` {sql}
+SELECT DISTINCT nationality FROM drivers;
+```
+
+![](figures/distinct-sqlite.png){width="60%"} <!-- Placeholder for updated figure -->
+:::
+
+## Basic calculations
+
+::: {style="margin-top: 50px; font-size: 22px;"}
+- You can perform calculations directly in `SELECT`. Use `AS` to name the result column.
+
+``` {sql}
+SELECT
+    driver_name,
+    victories,
+    victories * 1.1 AS victories_plus_10_percent
 FROM drivers;
 ```
 
-![](figures/aggregate.png){width="90%"}
+![](figures/calculations-sqlite.png){width="90%"} <!-- Placeholder for updated figure -->
 :::
 
-:::{.column width="50%"}
-### Sort
+## Aggregate functions
 
-- Use `ORDER BY` to sort the data
-- Order in ascending order of victories with `ASC` (`DESC` for descending)
+::: {style="margin-top: 50px; font-size: 22px;"}
+- SQL has functions to summarize data: `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`.
 
-```{sql}
-SELECT driver_name, victories FROM drivers
-ORDER BY victories ASC;
+``` {sql}
+SELECT COUNT(*) AS total_drivers FROM drivers;
+
+SELECT SUM(victories) AS total_victories FROM drivers;
+
+SELECT AVG(victories) AS average_victories FROM drivers;
+
+SELECT MAX(victories) AS max_victories FROM drivers;
 ```
 
-![](figures/order-asc.png){width="70%"}
-:::
-:::
+![](figures/aggregate-sqlite.png){width="90%"} <!-- Placeholder for updated figure -->
 :::
 
-## Try it yourself! 🧠 {#sec:exercise02}
+## GROUP BY
 
-:::{style="margin-top: 30px; font-size: 26px;"}
-- Select `nationality` and `driver_id` for drivers with more than 60 victories
-- Write your own code! 🧠
-- [[Appendix 02]{.button}](#sec:appendix02)
-:::
+::: {style="margin-top: 50px; font-size: 22px;"}
+- `GROUP BY` groups rows with the same values in specified columns, allowing aggregate functions per group.
 
-## Groupby + Aggregate
-
-:::{style="margin-top: 50px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
-### Groupby
-
-- Use `GROUP BY` to group data by a column
-
-```{sql}
-SELECT nationality,
-       SUM(victories) AS sum_victories,
-       AVG(victories) AS mean_victories,
-       MIN(victories) AS min_victories,
-       MAX(victories) AS max_victories
-FROM drivers
-GROUP BY nationality;
-```
-
-![](figures/groupby.png){width="90%"}
-:::
-
-:::{.column width="50%"}
-### Round
-
-- Use `ROUND()` to round the values
-- The first argument is the value to be rounded and the second is the number of decimal places
-
-```{sql}
-SELECT nationality,
-       SUM(victories) AS sum_victories,
-       ROUND(AVG(victories), 1) AS mean_victories,
-       MIN(victories) AS min_victories,
-       MAX(victories) AS max_victories
-FROM drivers
-GROUP BY nationality;
-```
-
-![](figures/round.png){width="70%"}
-:::
-:::
-:::
-
-## Filtering after aggregating with HAVING
-
-:::{style="margin-top: 50px; font-size: 20px;"}
-:::{.columns}
-:::{.column width="50%"}
-- Use `HAVING` to filter variables [after aggregating]{.alert}
-- This differs from `WHERE`, which is used to filter variables [before aggregating]{.alert}
-
-```{sql}
-SELECT nationality,
-       SUM(victories) AS sum_victories,
-       ROUND(AVG(victories), 1) AS mean_victories,
-       MIN(victories) AS min_victories,
-       MAX(victories) AS max_victories
+``` {sql}
+SELECT
+    nationality,
+    COUNT(*) AS number_of_drivers,
+    AVG(victories) AS avg_victories_per_nationality
 FROM drivers
 GROUP BY nationality
-HAVING SUM(victories) > 50;
+ORDER BY number_of_drivers DESC;
 ```
+
+![](figures/group-by-sqlite.png){width="90%"} <!-- Placeholder for updated figure -->
 :::
 
-:::{.column width="50%"}
-- The command above computes the same table as the previous one
-- Then filters with `HAVING`
+# Questions? 🤔 {background-color="#2d4563"}
 
-![](figures/having.png){width="90%"}
-:::
-:::
-:::
-
-## Python vs. SQL
-
-:::{style="margin-top: 50px; font-size: 20px;"}
-- Here are some equivalences between Python and SQL commands
-
-| SQL Command        | Pandas Equivalent                                                                                      |
-|--------------------|--------------------------------------------------------------------------------------------------------|
-| `SELECT`           | `df[['column1', 'column2']]`                                                                           |
-| `INSERT INTO`      | `df.loc[new_index] = new_row` or `df = df.append(new_row, ignore_index=True)`                           |
-| `WHERE`            | `df[df['column'] == value]`                                                                            |
-| `GROUP BY`         | `df.groupby('column')`                                                                                 |
-| `HAVING`           | `df.groupby('column').filter(lambda x: condition)`                                                     |
-| `ROUND()`          | `df['column'].round(decimals)`                                                                         |
-| Aggregate Functions | `df.groupby('column').agg({'col1': 'sum', 'col2': 'mean', 'col3': 'min', 'col4': 'max'})`             |
-
-<br>
-
-:::{style="font-size: 20px;"}
-:::{.columns}
-:::{.column width="40%"}
-```{sql}
--- SQL
-SELECT nationality,
-       SUM(victories) AS sum_victories
-FROM drivers
-GROUP BY nationality
-HAVING SUM(victories) > 10;
-```
-:::
-
-:::{.column width="60%"}
-```{python}
-#| echo: true
-#| eval: false
-# Python
-import pandas as pd
-
-# Group by 'nationality' and calculate 'sum_victories' using agg()
-result = (
-    drivers.groupby('nationality')
-    .agg(sum_victories=('victories', 'sum'))
-    .reset_index()
-)
-
-# Apply 'HAVING' condition
-result = result[result['sum_victories'] > 10]
-```
-:::
-:::
-:::
-:::
-
-## Do you want to learn more? 🤓 
-
-:::{style="margin-top: 50px; font-size: 22px;"}
-- Here is a list of resources to help you learn more about SQL:
-  - [SQLBolt](https://sqlbolt.com/): Interactive SQL tutorials
-  - [W3Schools](https://www.w3schools.com/sql/): SQL tutorials
-  - [Kaggle](https://www.kaggle.com/learn/intro-to-sql): SQL course
-  - [Mode Analytics](https://mode.com/sql-tutorial/): SQL tutorial
-  - [SQLZoo](https://sqlzoo.net/){data-modal-type="iframe"}: Interactive SQL tutorials
-  - [PostgreSQL Tutorial](https://www.postgresqltutorial.com/)
-  - [SQL for Data Science](https://www.datacamp.com/courses/sql-for-data-science): DataCamp course
-  - [SQL for Data Science](https://www.coursera.org/learn/sql-for-data-science): Coursera course
-  - [List of all PostgreSQL commands](https://www.postgresql.org/docs/current/sql-commands.html): There are many of them! 😅
-
-- Or just come to our next class! 😊
-:::
-
-# And that's it for today! 🚀 {background-color="#2d4563"}
-
-# See you next time! 😊 {background-color="#2d4563"}
+# Appendix {background-color="#2d4563"}
 
 ## Appendix 01 {#sec:appendix01}
 
-:::{style="margin-top: 30px; font-size: 22px;"}
-```{sql}
-INSERT INTO drivers VALUES (5, 'Max Verstappen', 'Dutch', 51);
+::: {style="margin-top: 50px; font-size: 22px;"}
+- Here's the full table after adding the extra drivers from the exercise:
 
-INSERT INTO drivers VALUES (6, 'Juan Pablo Montoya', 'Colombian', 6);
-
-INSERT INTO drivers VALUES (7, 'Danilo Freire','Brazilian', 10);
+``` {sql}
+SELECT * FROM drivers ORDER BY driver_id;
 ```
 
-![](figures/appendix01.png){width="40%"}
+| driver\_id | driver\_name       | nationality | victories |
+| :--------- | :----------------- | :---------- | :-------- |
+| 1          | Lewis Hamilton     | British     | 103       |
+| 2          | Fernando Alonso    | Spanish     | 32        |
+| 3          | Sebastian Vettel   | German      | 91        |
+| 4          | Michael Schumacher | German      | 53        |
+| 5          | Max Verstappen     | Dutch       | 51        |
+| 6          | Juan Pablo Montoya | Colombian   | 6         |
+| 7          | Danilo Freire      | Brazilian   | 10        |
 
-[[Back to the exercise]{.button}](#sec:exercise01)
-:::
-
-## Appendix 02 {#sec:appendix02}
-
-:::{style="margin-top: 30px; font-size: 22px;"}
-```{sql}
-SELECT nationality, driver_id FROM drivers
-WHERE victories > 60;
-```
-
-![](figures/appendix02.png){width="68%"}
-
-[[Back to the exercise]{.button}](#sec:exercise02)
+*Note: The exact `driver_id` values might differ if you dropped and recreated the table multiple times, but the relative order should be similar.*
 :::

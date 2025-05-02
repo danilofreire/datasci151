@@ -1,6 +1,6 @@
 ---
 title: QTM 151 - Introduction to Statistical Computing II
-subtitle: Lecture 19 - SQL and Python
+subtitle: Lecture 19 - SQL (SQLite) and Python
 author:
   - name: Danilo Freire
     email: danilo.freire@emory.edu
@@ -9,7 +9,7 @@ format:
   clean-revealjs:
     self-contained: true
     code-overflow: wrap
-    footer: "[SQL and Python](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-19/19-sql-python.html)"
+    footer: "[SQL (SQLite) and Python](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-19/19-sql-python.html)" # Updated footer
 transition: slide
 transition-speed: default
 scrollable: true
@@ -25,31 +25,31 @@ editor:
 
 ## An announcement 📢
 
-:::{style="margin-top: 50px; font-size: 22px; text-align: center;"}
+::: {style="margin-top: 50px; font-size: 22px; text-align: center;"}
 ![](figures/alumni.png){width="50%"}
 :::
 
 ## Another announcement 📢
 ### Final project
 
-:::{style="margin-top: 50px; font-size: 24px;"}
+::: {style="margin-top: 50px; font-size: 24px;"}
 - The project is due on **December 9th**, as we talked about before
 - [Feel free to create your own groups]{.alert} of up to 4 people and [send them to me via email]{.alert}
-- I will also send an announcement on Canvas about that 
-- Students who are not in a group by the end of this week will be assigned to a group at random 
+- I will also send an announcement on Canvas about that
+- Students who are not in a group by the end of this week will be assigned to a group at random
 - So please, make sure you have a group soon 🤓
 - What do you think? Any questions? 😊
 :::
 
-# Brief recap of lecture 17 📚 {background-color="#2d4563"} 
+# Brief recap of lecture 17 📚 {background-color="#2d4563"}
 
 ## Do you still remember what SQL is? 😂
 
-:::{style="margin-top: 30px; font-size: 21px;"}
-:::{.columns}
-:::{.column width=50%}
+::: {style="margin-top: 30px; font-size: 21px;"}
+::: {.columns}
+::: {.column width=50%}
 - SQL is a language used to interact with databases
-- We learned how to connect to a [PostgreSQL](https://www.postgresql.org/) database, use [pgAdmin](https://www.pgadmin.org/), and run SQL queries both with pgAdmin and the [SQL Notebook extension](https://marketplace.visualstudio.com/items?itemName=cmoog.sqlnotebook) in VS Code
+- We learned how to connect to an [SQLite](https://www.sqlite.org/index.html) database using the [SQLite VSCode extension](https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite)
 - We also saw some of SQL's basic commands:
   - `SELECT`
   - `FROM`
@@ -59,170 +59,187 @@ editor:
   - `INSERT INTO`
   - `CREATE TABLE`
   - `DROP TABLE`
-- And today we will see how to use SQL with Python! 🐍 
+- And today we will see how to use SQL (specifically SQLite) with Python! 🐍
 :::
 
-:::{.column width=50%}
-:::{style="text-align: center;"}
+::: {.column width=50%}
+::: {style="text-align: center;"}
 ![](figures/ai.png){width="60%"}
 :::
 :::
 :::
 :::
 
-# SQL in Python 🐍 {background-color="#2d4563"}
+# SQL (SQLite) in Python 🐍 {background-color="#2d4563"}
 
 ## Necessary libraries 📦
 
-:::{style="margin-top: 30px; font-size: 20px;"}
-:::{.columns}
-:::{.column width=50%}
-- `psycopg2` is a PostgreSQL adapter for Python. Info [here](https://www.psycopg.org/docs/)
-  - It allows us to connect to a PostgreSQL database and run SQL queries
-- `sqlalchemy` is a SQL toolkit. More info [here](https://www.sqlalchemy.org/)
-  - It provides a set of high-level APIs to interact with databases
-- They are a bit cumbersome to install and run, but they are very powerful tools
-- You won't need to use `pgAdmin` or `SQL Notebook` anymore, as you can run SQL queries directly in Python
-- SQL is a great language to interact with databases, but it does not have any support for data visualisation or analysis 
-- But we can use Python to do all the other things that SQL cannot do 🐍
+::: {style="margin-top: 30px; font-size: 20px;"}
+::: {.columns}
+::: {.column width=50%}
+- **`sqlite3`**: This module is **built into Python**! 🎉 No installation needed. It provides the core functionality to interact with SQLite databases.
+- **`sqlalchemy`**: A powerful SQL toolkit. More info [here](https://www.sqlalchemy.org/).
+  - It provides a consistent way to interact with different types of SQL databases, including SQLite.
+  - We'll use it to create a database "engine" that `pandas` can easily use.
+- **`pandas`**: We'll use pandas to read data from CSVs and write/read data to/from our SQLite database tables.
+- You won't need to use the VSCode SQLite extension for running queries from Python (though it's still useful for browsing the database file).
+- SQL is great for database interaction, but Python + pandas gives us data analysis and visualization capabilities. 🐍📊
 :::
 
-:::{.column width=50%}
-:::{style="text-align: center;"}
+::: {.column width=50%}
+::: {style="text-align: center;"}
 ![](figures/sql-python02.jpg){width="60%"}
 :::
 :::
 :::
 :::
 
-## Installing `psycopg2` and `sqlalchemy` 🐘
+## Installing `sqlalchemy` 🐘
 
-:::{style="margin-top: 30px; font-size: 24px;"}
-- You can install `psycopg2` and `sqlalchemy` using `condas` or `pip`
+::: {style="margin-top: 30px; font-size: 24px;"}
+- Since `sqlite3` is built-in, you only need to ensure `sqlalchemy` and `pandas` are installed.
+- You can install/update them using `conda` or `pip`:
 
-```{verbatim}
-conda install psycopg2 sqlalchemy
+``` {verbatim}
+conda install sqlalchemy pandas
 
 # or
 
-pip install psycopg2 sqlalchemy
+pip install sqlalchemy pandas
 ```
-- The command line method is actually more reliable (and easier) than using the [Anaconda Navigator](https://docs.anaconda.com/navigator/)
-- So you can try to do it yourself! Open a terminal in VS Code and run the command above 🤓
+- The command line method is generally reliable. Open a terminal in VS Code (Terminal > New Terminal) and run one of the commands above. 🤓
 
-:::{style="text-align: center;"}
+::: {style="text-align: center;"}
 [![](figures/sqlalchemy.jpg){width="30%"}](https://www.sqlalchemy.org/){data-modal-type="iframe"}
 :::
 :::
 
-## Connecting to a PostgreSQL database
+## Connecting to an SQLite database file
 
-:::{style="margin-top: 50px; font-size: 20px;"}
-- So let's load the libraries! 🤓
+::: {style="margin-top: 50px; font-size: 20px;"}
+- Let's load the necessary libraries! 🤓
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-import psycopg2
+import sqlite3 # Though we often interact via sqlalchemy
 from sqlalchemy import create_engine, text
+import pandas as pd
 ```
 
-- Now let's connect to the database
-- We need the database name, user, password, and host
+- Now let's connect to the database file. If the file doesn't exist, SQLite will create it!
+- We'll use `sqlalchemy`'s `create_engine` for compatibility with pandas.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-# Connection parameters
-engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/postgres')
-connection = engine.connect()
+# Database file path (will be created in the same directory as the script/notebook if it doesn't exist)
+db_path = 'lecture19.sqlite'
+# Connection string for SQLite
+# The '///' indicates a relative path to the file
+engine = create_engine(f'sqlite:///{db_path}')
+# Optional: Create a connection object (often pandas functions can use the engine directly)
+# connection = engine.connect()
 ```
 
-- Let's see what every part of the connection string means
-- `create_engine()` creates a connection to the database
-- `postgresql+psycopg2` is the database driver
-- `postgres:postgres` is the username and password
-- `localhost:5432` is the host and port
-- `postgres` is the database name
+- Let's break down the connection string `sqlite:///lecture19.sqlite`:
+  - `sqlite`: Specifies the database dialect (SQLite).
+  - `///`: Indicates that the following path is relative to the current working directory. For an absolute path, you'd use `sqlite:////path/to/your/database.db`.
+  - `lecture19.sqlite`: The name of the database file.
+- `create_engine()` creates an object that manages connections to the database.
 :::
 
 ## Load data and import them into a table
 
-:::{style="margin-top: 50px; font-size: 20px;"}
-- Let's load some data into a table
+::: {style="margin-top: 50px; font-size: 20px;"}
+- Let's load some data using pandas.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-import pandas as pd
+# Make sure the data_raw directory is accessible from where you run this
+try:
+    results = pd.read_csv("data_raw/results.csv")
+    races = pd.read_csv("data_raw/races.csv")
+    circuits = pd.read_csv("data_raw/circuits.csv")
+    print("CSV files loaded successfully.")
+except FileNotFoundError as e:
+    print(f"Error loading CSV: {e}")
+    print("Please ensure 'data_raw' directory is in the correct location.")
+    # Assign empty DataFrames to avoid errors later if files not found
+    results, races, circuits = pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
 
-results  = pd.read_csv("data_raw/results.csv")
-races    = pd.read_csv("data_raw/races.csv")
-circuits = pd.read_csv("data_raw/circuits.csv")
 ```
 
-- We will use the `to_sql()` method from `pandas` to import the data into PostgreSQL
-- We need to specify the table name and the connection
+- We will use the `to_sql()` method from `pandas` to import the data into our SQLite database.
+- We need to specify the table name and the engine (or connection).
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-results.to_sql('results', connection, if_exists='replace', index=False)
-races.to_sql('results', connection, if_exists='replace', index=False)
+# Check if DataFrames are not empty before writing to SQL
+if not results.empty:
+    results.to_sql('results', engine, if_exists='replace', index=False)
+    print("Results data written to SQL table 'results'.")
+if not races.empty:
+    # Note: Original code wrote races to 'results' table, likely a typo. Writing to 'races' table.
+    races.to_sql('races', engine, if_exists='replace', index=False)
+    print("Races data written to SQL table 'races'.")
+else:
+    print("Skipping SQL write for empty DataFrames.")
+
 ```
 
-- The `if_exists='replace'` parameter will replace the table if it already exists
-  - Like `DROP TABLE` and `CREATE TABLE` in SQL
-- The `index=False` parameter will not import the index column
+- The `if_exists='replace'` parameter will drop the table if it already exists and create a new one.
+  - Equivalent to `DROP TABLE IF EXISTS ...; CREATE TABLE ...;`
+- The `index=False` parameter prevents pandas from writing the DataFrame index as a column in the SQL table.
 :::
 
 ## Try it yourself! 🤓 {#sec:exercise01}
 
-:::{style="margin-top: 50px; font-size: 28px;"}
-- Import the `circuits` table into PostgreSQL
+::: {style="margin-top: 50px; font-size: 28px;"}
+- Import the `circuits` DataFrame into an SQLite table named `circuits`.
 - [[Appendix 01]{.button}](#sec:appendix01)
 :::
 
 ## Escape the SQL queries
 
-:::{style="margin-top: 50px; font-size: 18px;"}
-- When we work with strings (text), we need to ensure that the SQL query is correctly formatted
-- SQL can get confused with single and double quotes (I get confused too 😂)
-- Use a backslash (`\`) to define strins over multiple lines
-- Do not include a space after `\`, otherwise it won't work
+::: {style="margin-top: 50px; font-size: 18px;"}
+- When constructing SQL queries as strings in Python, be mindful of quotes.
+- Using triple quotes `'''SQL query here'''` is often the easiest way to handle multi-line queries and queries containing single or double quotes.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-example_string = "This is a string \
-                  defined over multiple lines"
-
-print(example_string)
-```
-
-- Double quotes inside a string
-
-```{python}
-#| echo: true
-#| eval: true
-example_double = "This will \"supposedly\" put double quotes inside a string"
-print(example_double)
-```
-
-- Triple quotes
-
-```{python}
-#| echo: true
-#| eval: true
-example_triple = '''This is a string with 'single' and "double" quotes'''
+# Example using triple quotes
+example_triple = '''SELECT *
+                  FROM results
+                  WHERE "resultId" = 1;'''
 print(example_triple)
+```
+
+- If you build queries dynamically, using f-strings or other methods, ensure proper quoting, especially for string literals in SQL (which use single quotes). `sqlalchemy.text` helps manage parameters safely, preventing SQL injection vulnerabilities.
+
+``` {python}
+#| echo: true
+#| eval: true
+# Example with f-string (less safe for external input, fine for constants)
+table_name = "races"
+query_fstring = f"SELECT name FROM {table_name} LIMIT 5;"
+print(query_fstring)
+
+# Safer way using sqlalchemy.text for parameters (if needed)
+# query_safe = text("SELECT * FROM races WHERE name = :race_name")
+# params = {"race_name": "Monaco Grand Prix"}
+# result = pd.read_sql(query_safe, engine, params=params)
 ```
 :::
 
 ## Try it yourself! 🤓 {#sec:exercise02}
 
-:::{style="margin-top: 50px; font-size: 28px;"}
-- Print a string ``` SELECT "driverId" FROM results; ``` using backslash
+::: {style="margin-top: 50px; font-size: 28px;"}
+- Create and print a Python string containing the SQL query: `SELECT "driverId" FROM results WHERE points > 10;`
+- Use triple quotes.
 - [[Appendix 02]{.button}](#sec:appendix02)
 :::
 
@@ -230,39 +247,47 @@ print(example_triple)
 
 ## Selecting data
 
-:::{style="margin-top: 50px; font-size: 20px;"}
-:::{.columns}
-:::{.column width=50%}
-- We can use the `pd.read_sql_query()` method to run SQL queries
-- A [query is a string that contains the SQL command]{.alert}
-- We can use the `text()` method from `sqlalchemy` to format the query
-- Why do we use it? Because it is [safer and more reliable]{.alert}
-- So if you're going to run a query, you're always safe using `text()`
+::: {style="margin-top: 50px; font-size: 20px;"}
+::: {.columns}
+::: {.column width=50%}
+- We can use the `pd.read_sql()` or `pd.read_sql_query()` function to run SQL queries against our SQLite database and get the results directly into a pandas DataFrame.
+- A [query is a string containing the SQL command]{.alert}.
+- Using `sqlalchemy.text()` around the query string is good practice, especially for complex queries or when using parameters, as it helps prevent errors and SQL injection.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-pd.read_sql(text("SELECT * FROM results;"), connection).head(3)
+try:
+    # Use text() for the query
+    query = text("SELECT * FROM results LIMIT 3;")
+    results_head = pd.read_sql(query, engine)
+    display(results_head) # Use display() in notebooks for better formatting
+except Exception as e:
+    print(f"Error executing query: {e}")
+    print("Did the 'results' table get created correctly?")
+
 ```
 :::
 
-:::{.column width=50%}
-- Here are other examples of similar queries:
+::: {.column width=50%}
+- Here are other examples:
 
-```{python}
+``` {python}
 #| echo: true
-#| eval: false
-# Extract all data from a column
-example1 = pd.read_sql(text("SELECT * FROM results;"), connection)
+#| eval: false # Keep these as examples, not run automatically
 
-# Extract a subset of columns
-example2 = pd.read_sql(text("SELECT points \
-                             FROM results;"), connection)
+# Extract specific columns
+query_points = text("SELECT points FROM results WHERE points > 0;")
+# example_points = pd.read_sql(query_points, engine)
 
-# Subset based on a string condition
-example3 = pd.read_sql(text("SELECT * \
-                             FROM races \
-                             WHERE name = 'Abu Dhabi Grand Prix';"), connection)
+# Subset based on a string condition (use single quotes for SQL strings)
+query_race_name = text("SELECT * FROM races WHERE name = 'Abu Dhabi Grand Prix';")
+# example_race = pd.read_sql(query_race_name, engine)
+
+# Example with ORDER BY and LIMIT
+query_top_results = text("SELECT * FROM results ORDER BY points DESC LIMIT 5;")
+# example_top = pd.read_sql(query_top_results, engine)
+
 ```
 :::
 :::
@@ -270,32 +295,37 @@ example3 = pd.read_sql(text("SELECT * \
 
 ## Try it yourself! 🤓 {#sec:exercise03}
 
-:::{style="margin-top: 50px; font-size: 28px;"}
-- Select `raceId` and `constructorId` from results
-- Please convert the `results.csv` file to a table in PostgreSQL again, replacing the table if it already exists
+::: {style="margin-top: 50px; font-size: 28px;"}
+- Select `raceId` and `constructorId` from the `results` table where `position` is 1.
+- Load the results into a pandas DataFrame.
 - [[Appendix 03]{.button}](#sec:appendix03)
 :::
 
 ## Appendix 01 {#sec:appendix01}
 
-:::{style="margin-top: 50px; font-size: 20px;"}
-- Import the `circuits` table into PostgreSQL
+::: {style="margin-top: 50px; font-size: 20px;"}
+- Import the `circuits` DataFrame into an SQLite table named `circuits`.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-circuits.to_sql('circuits', connection, if_exists='replace', index=False)
-```
+if not circuits.empty:
+    circuits.to_sql('circuits', engine, if_exists='replace', index=False)
+    print("Circuits data written to SQL table 'circuits'.")
 
-- Check if the table was imported correctly
+    # Check if the table was imported correctly
+    try:
+        query_check = text('''
+        SELECT * FROM circuits
+        LIMIT 3 -- Show only the first 3 rows
+        ''')
+        circuits_check = pd.read_sql(query_check, engine)
+        display(circuits_check)
+    except Exception as e:
+        print(f"Error checking circuits table: {e}")
+else:
+    print("Skipping circuits import, DataFrame is empty.")
 
-```{python}
-#| echo: true
-#| eval: true
-pd.read_sql(text('''
-SELECT * FROM circuits
-LIMIT 3 -- Show only the first 3 rows
-'''), connection)
 ```
 
 [[Back to exercise]{.button}](#sec:exercise01)
@@ -303,13 +333,13 @@ LIMIT 3 -- Show only the first 3 rows
 
 ## Appendix 02 {#sec:appendix02}
 
-:::{style="margin-top: 50px; font-size: 24px;"}
-- Print a string ``` SELECT "driverId" FROM results; ``` using backslash
+::: {style="margin-top: 50px; font-size: 24px;"}
+- Create and print a Python string containing the SQL query: `SELECT "driverId" FROM results WHERE points > 10;`
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-example_query = "SELECT \"driverId\" FROM results;"
+example_query = '''SELECT "driverId" FROM results WHERE points > 10;'''
 print(example_query)
 ```
 
@@ -318,16 +348,45 @@ print(example_query)
 
 ## Appendix 03 {#sec:appendix03}
 
-:::{style="margin-top: 50px; font-size: 24px;"}
-- Select "raceId" and "constructorId" from results
-- Use the `pd.read_sql_query()` method to run the query
+::: {style="margin-top: 50px; font-size: 24px;"}
+- Select `raceId` and `constructorId` from the `results` table where `position` is 1.
 
-```{python}
+``` {python}
 #| echo: true
 #| eval: true
-results.to_sql('results', connection, if_exists='replace', index=False)
-pd.read_sql(text("SELECT \"raceId\", \"constructorId\" FROM results;"), connection).head()
+try:
+    query_winners = text('''
+    SELECT "raceId", "constructorId"
+    FROM results
+    WHERE position = 1;
+    ''')
+    winners_df = pd.read_sql(query_winners, engine)
+    display(winners_df.head())
+except Exception as e:
+    print(f"Error executing winners query: {e}")
+    print("Ensure the 'results' table exists and has data.")
+
 ```
 
 [[Back to exercise]{.button}](#sec:exercise03)
+:::
+
+# Closing the connection (Optional but good practice)
+
+::: {style="margin-top: 50px; font-size: 20px;"}
+- While `sqlalchemy` manages connections well, explicitly closing the engine connection pool when you're completely done can free up resources, especially in long-running applications. For scripts/notebooks, it's often less critical as resources are released when the process ends.
+
+``` {python}
+#| echo: true
+#| eval: true
+# If you created a specific connection object:
+# if 'connection' in locals() and connection is not None:
+#     connection.close()
+#     print("SQLAlchemy connection closed.")
+
+# Dispose of the engine's connection pool
+if 'engine' in locals() and engine is not None:
+    engine.dispose()
+    print("SQLAlchemy engine disposed.")
+```
 :::

@@ -1,12 +1,12 @@
 ---
 title: "QTM 151 - Introduction to Statistical Computing II"
 author: "Danilo Freire"  
-date: "Fall 2024"
+date: "Summer 2025"
 fontsize: 12pt
 fontfamily: libertine
 monofont: inconsolata
 monofontoptions: scaled=.95
-spacing: double
+spacing: onehalf
 geometry: 
   - top=2cm
   - bottom=2cm
@@ -27,6 +27,8 @@ format:
 editor: 
   render-on-save: false
 ---
+
+\doublespacing 
 
 # Course Description
 
@@ -140,7 +142,7 @@ The lecture notes cover all the necessary material for the course, and the weekl
 
 ## Module 01: Introduction to Python, Jupyter, and GitHub
 
-### Wednesday, August 28:
+### Lecture 01 
 
 - Syllabus and course repository: <https://github.com/danilofreire/qtm151>.
 - Lecture 01: [Welcome to QTM 151 - Introduction](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-01/01-introduction.html).
@@ -153,12 +155,10 @@ Weekly suggested readings:
 - Brady, H. E. (2019). [The Challenge of Big Data and Data Science](https://www.annualreviews.org/content/journals/10.1146/annurev-polisci-090216-023229). Annual Review of Political Science, 22(1), 297-323.
 - Zitnik, M., Nguyen, F., Wang, B., Leskovec, J., Goldenberg, A., & Hoffman, M. M. (2019). [Machine Learning for Integrating Data in Biology and Medicine: Principles, Practice, and Opportunities](https://www.sciencedirect.com/science/article/abs/pii/S1566253518304482). Information Fusion, 50, 71-91.
 
-### Monday, September 02: Labour Day (no class)
-
-### Wednesday, September 04:
+### Lecture 02
 
 - [Lecture 02: GitHub Review](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-02/02-github-jupyter.html), [Introduction to Jupyter Notebooks](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-02/02-jupyter.ipynb).
-- Extra lecture: [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-02/02-github-jupyter.html#/title-slide).  [Video Recording](https://emory-my.sharepoint.com/:v:/g/personal/dafreir_emory_edu/EaTyfePUASBJlUyB-0HuGKkB9YyPc0kS3DARtdAzVst8PQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=5BO5Zi).
+- Extra lecture: [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-02/02-github-jupyter.html#/title-slide).  [Video Recording](https://emory-my.sharepoint.com/:v:/g/personal/dafreir_emory_edu/EaTyfePUASBJlUyB-0HuGKkB9YyPc0kS3DARtdAzVst8PQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZERpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=5BO5Zi).
 - **Assignment 01:** [Problem Set 01](https://github.com/danilofreire/qtm151/blob/main/assignments/01-assignment.ipynb).
 
 Weekly suggested readings:
@@ -171,11 +171,11 @@ Weekly suggested readings:
 
 ## Module 02: Python Data Types and Controlling Flows
 
-### Monday September 09:
+### Lecture 03
 
 -  Lecture 03: Variables and Lists. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-03/03-variables-lists.ipynb). [Lecture Slides](https://rawcdn.githack.com/danilofreire/qtm151/4c85d539a1a386e76a2e105625b780d44830dc2d/lectures/lecture-03/03-variables-lists.html)
 
-### Wednesday, September 11:
+### Lecture 04
 
 - Lecture 04: Mathematical Operations, Arrays, and Random Numbers. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-04/04-maths-arrays-random.ipynb).
 - **Assignment 01 due (5%).**
@@ -190,11 +190,11 @@ Weekly suggested readings:
 - Matthes, E. (2019). Python Crash Course: A Hands-On, Project-Based Introduction to Programming (2nd ed.). No Starch Press. [Chapter 02](https://nostarch.com/download/PCC3e_ch2sample_8.17.22.pdf).
 - Severance, C. (2016). Python for Everybody: Exploring Data in Python 3. CreateSpace Independent Publishing Platform. [Chapters 3-11](https://www.py4e.com/lessons) (Note: Read only the chapters which interest you).
 
-### Monday, September 16:
+### Lecture 05
 
 - Lecture 05: Boolean Variables and If/Else Statements. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-05/05-boolean-if-else.ipynb), [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-05/05-boolean-if-else.html).
 
-### Wednesday, September 18:
+### Lecture 06
 
 - Lecture 06: While Loops and For Loops. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-06/06-while-for.ipynb), [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-06/06-while-for.html)
 - **Assignment 02 due (5%).**
@@ -212,11 +212,11 @@ Weekly suggested readings:
 
 ## Module 03: Writing and Running Functions
 
-### Monday, September 23:
+### Lecture 07
 
 - Lecture 07: Applications 1: Simulation Studies. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-07/07-applications-simulation.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-07/07-applications-simulation.html).
 
-### Wednesday, September 25:
+### Lecture 08
 
 - Lecture 08: [Functions and Arguments](https://danilofreire.github.io/qtm151/lectures/lecture-08/08-functions-arguments.ipynb).
 - **Assignment 03 due (5%).**
@@ -229,18 +229,15 @@ Weekly suggested readings:
 - [Real Python: Defining Functions in Python](https://realpython.com/defining-your-own-python-function/).
 - [Python Tutorial for Beginners: Functions](https://www.youtube.com/watch?v=9Os0o3wzS_I).
 
-### Monday, September 30:
+### Lecture 09
 
-- Monday, September 30: Lecture 09: Global and Local Variables. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-09/09-global-local.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-09/09-global-local.html).
+- Lecture 09: Global and Local Variables. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-09/09-global-local.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-09/09-global-local.html).
   - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=e5422be1-4423-436b-9d99-895879b4d906&hostId=05eb977d-4f8a-440e-9e45-95212b29d103)
 
-### Wednesday, October 02:
+### Lecture 10
 
 - Lecture 10: [**Quiz 01: Application 02 - Operations over Multiple Datasets (6%)**](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-10/10-operations-multiple-datasets.ipynb).
 - **Assignment 05:** [Problem Set 05](https://github.com/danilofreire/qtm151/blob/main/assignments/05-assignment.ipynb).
-
-### Friday, October 04: (exceptionally)
-
 - **Assignment 04 due (5%).**
 
 Weekly suggested readings:
@@ -249,9 +246,9 @@ Weekly suggested readings:
 - [NumPy Documentation: Indexing on `ndarrays`](https://numpy.org/doc/stable/user/basics.indexing.html).
 - [Pandas Documentation: How do I Select a Subset of a `DataFrame`?](https://pandas.pydata.org/pandas-docs/stable/getting_started/intro_tutorials/03_subset_data.html).
 
-### Monday, October 07:
+### Lecture 11
 
-- Monday, October 07: Lecture 11: Subsetting Data. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-11/11-subsetting-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-11/11-subsetting-data.html)
+- Lecture 11: Subsetting Data. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-11/11-subsetting-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-11/11-subsetting-data.html)
 
 Weekly suggested readings:
 
@@ -263,17 +260,15 @@ Weekly suggested readings:
 
 ## Module 04: Data Manipulation with Pandas
 
-### Wednesday, October 09:
+### Lecture 12
 
-- Wednesday, October 09: Lecture 12: Application 03: Linear Models. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-12/12-linear-models.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-12/12-linear-models.html).
+- Lecture 12: Application 03: Linear Models. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-12/12-linear-models.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-12/12-linear-models.html).
 - **Assignment 05 due (5%).**
 - **Assignment 06:** [Problem Set 06](https://github.com/danilofreire/qtm151/blob/main/assignments/06-assignment.ipynb).
 
-### Monday, October 14: Fall Break (no class)
+### Lecture 13
 
-### Wednesday, October 16:
-
-- Wednesday, October 16: Lecture 13: Replacing and Recoding Variables. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-13/13-replacing-recoding-variables.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-13/13-replacing-recoding-variables.html).
+- Lecture 13: Replacing and Recoding Variables. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-13/13-replacing-recoding-variables.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-13/13-replacing-recoding-variables.html).
 - **Assignment 06 due (5%).**
 - **Assignment 07:** [Problem Set 07](https://github.com/danilofreire/qtm151/blob/main/assignments/07-assignment.ipynb).
 
@@ -282,11 +277,11 @@ Weekly suggested readings:
 - [Python for Data Analysis: Data Cleaning and Preparation](https://wesmckinney.com/book/data-cleaning).
 - [Codedamn: How to use the Replace function in Python](https://codedamn.com/news/python/how-to-use-the-replace-function-in-python).
 
-### Monday, October 21:
+### Lecture 14
 
 - Lecture 14: [**Quiz 2: Application 4: Random Assignment (6%)**](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-14/14-random-assignment.ipynb).
 
-### Wednesday, October 23:
+### Lecture 15
 
 - Lecture 15: Aggregating Data. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-15/15-aggregating-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-15/15-aggregating-data.html).
 - **Assignment 07 due (5%).**
@@ -301,12 +296,12 @@ Weekly suggested readings:
 
 ## Module 05: Data Manipulation with SQL
 
-### Monday, October 28:
+### Lecture 16
 
 - Lecture 16: Merging Data. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-16/16-merging-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-16/16-merging-data.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=2f7a071d-61d4-4069-bed3-ff283a7bd1c3&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
 
-### Wednesday, October 30:
+### Lecture 17
 
 - Lecture 17: Introduction to SQL. [SQL file](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-17/17-introduction-sql.sql). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-17/17-introduction-sql.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=be2a60bb-9c17-49d0-b291-a916be65d5f5&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
@@ -323,11 +318,11 @@ Weekly suggested readings:
 - [PostgreSQL Tutorial](https://www.postgresqltutorial.com/).
 - [PostgreSQL Documentation: SQL Commands](https://www.postgresql.org/docs/current/sql-commands.html). (Note: For reference only).
 
-### Monday, November 04:
+### Lecture 18
 
 - Lecture 18: [**Quiz 3: Application 5: Practicing Chaining (6%)**](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-18/18-chaining.ipynb).
 
-### Wednesday, November 06:
+### Lecture 19
 
 - Lecture 19: Import SQL Data into Python. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-19/19-sql-python.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-19/19-sql-python.html).
 - **Assignment 09 due (5%).**
@@ -342,12 +337,12 @@ Weekly suggested readings:
 
 ## Module 06: Time Series and Panel Data
 
-### Monday, November 11:
+### Lecture 20
 
 - Lecture 20: Merging Tables in SQL. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-20/20-sql-merging.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-20/20-sql-merging.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=6e601286-2112-4bdb-b2da-609dce9d8a26&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
 
-### Wednesday, November 13:
+### Lecture 21
 
 - Lecture 21: Time Series Analysis. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-21/21-time-series.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-21/21-time-series.html).
 - **Assignment 10 due (5%).**
@@ -359,11 +354,11 @@ Weekly suggested readings:
 - McKinney, W. (2022). Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython (3rd ed.). O'Reilly Media. [Chapter 11: Time Series](https://wesmckinney.com/book/time-series).
 - [Pandas Documentation: Time Series / Date functionality](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html).
 
-### Monday, November 18:
+### Lecture 22
 
 - Lecture 22: [**Quiz 4: Application 6: Practice SQL Queries (6%)**](https://github.com/danilofreire/qtm151-quiz04).
 
-### Wednesday, November 20:
+### Lecture 23
 
 - Lecture 23: Pivot Tables. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-23/23-pivot-tables.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-23/23-pivot-tables.html).
 
@@ -376,17 +371,17 @@ Weekly suggested readings:
 
 ## Module 07: Text Data and Advanced Plots
 
-### Monday, November 25:
+### Lecture 24
 
 - Lecture 24: Manipulating Text Data. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-24/24-text-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-24/24-text-data.html).
 
 ### Wednesday, November 27: Thanksgiving Break (no class)
 
-### Monday, December 02:
+### Lecture 25
 
 - Lecture 25: [**Quiz 5: Application 8: Time Data, Panel Data, and Plots (6%)**](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-25/25-time-panel-plots.ipynb).
 
-### Wednesday, December 04:
+### Lecture 26
 
 - Lecture 26: Drop-in Session for the Final Project. No readings.
 
@@ -394,6 +389,6 @@ Weekly suggested readings:
 
 - [Real Python: Python String Formatting Best Practices](https://realpython.com/python-string-formatting/).
 
-### Monday, December 09:
+### Lecture 27
 
 - **Final Project due (20%).**
