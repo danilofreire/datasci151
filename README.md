@@ -22,6 +22,33 @@ This repository is organised as follows:
 - [`README.md`](https://github.com/danilofreire/qtm151/blob/main/README.md): This file, providing an overview of the course and repository
 - [`syllabus.pdf`](https://github.com/danilofreire/qtm151/blob/main/syllabus.pdf): Course syllabus in PDF format
 
+## Downloading the Repository
+
+The quickest way to download the course materials is a **shallow clone**, which fetches only the current files without the full history of past changes. This keeps the download small and works well on slow connections:
+
+```bash
+git clone --depth 1 https://github.com/danilofreire/datasci151.git
+```
+
+If you would like the complete history (for example, to see how the materials evolved over the semester), omit the flag:
+
+```bash
+git clone https://github.com/danilofreire/datasci151.git
+```
+
+The full clone takes longer and uses more disk space, but it is not required for the course.
+
+### Updating Your Copy
+
+When new lectures or fixes are added, pull the latest changes from inside the repository folder:
+
+```bash
+cd datasci151
+git pull
+```
+
+This works the same way on shallow and full clones.
+
 ## Course Content
 
 ### Lectures (Tentative Schedule)
