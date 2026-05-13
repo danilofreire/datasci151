@@ -219,7 +219,7 @@ print("Welcome to DATASCI151!")
 
 ::: {.column width=50%}
 ![](figures/sql.png){width=400px}
-![](figures/postgresql.webp){width=400px}
+![](figures/sqlite.png){width=400px}
 :::
 ::::
 
