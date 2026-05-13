@@ -1,5 +1,5 @@
 ---
-title: "QTM 151 - Introduction to Statistical Computing II"
+title: "DATASCI 151 - Introduction to Statistical Computing II"
 author: "Danilo Freire"  
 date: "Summer 2025"
 fontsize: 12pt
@@ -32,7 +32,7 @@ editor:
 
 # Course Description
 
-Welcome to [QTM 151](https://github.com/danilofreire/qtm151)! This course introduces students to data analysis and statistical computing using Python and SQL. It is ideal for those with little or no programming experience who want to develop skills for data-driven decision making.
+Welcome to [DATASCI 151](https://github.com/danilofreire/datasci151)! This course introduces students to data analysis and statistical computing using Python and SQL. It is ideal for those with little or no programming experience who want to develop skills for data-driven decision making.
 
 Over the semester, we will cover version control for collaborative coding, Jupyter Notebooks for reproducible research, Python programming basics, data wrangling and merging in SQL, data visualisation, and introductions to linear modelling and time series analysis.
 
@@ -86,7 +86,7 @@ This course is designed to be self-contained, providing all the necessary resour
 # Course Information
 
 
-We will meet every Monday and Wednesday from 16:00 to 16:50 in the [Anthropology Building, 303](https://maps.app.goo.gl/bgxTfADzf1Vz2z1EA). It is important that you read the materials before class. All information about the course is available on the course's GitHub repository at <https://github.com/danilofreire/qtm151>. While I will try to adhere to the course schedule as much as possible, I also want to adapt to your learning pace and style. The syllabus and course plan may change in the semester. Again, please check [the course repository](https://github.com/danilofreire/qtm151) regularly to check for updates. I will also announce any changes in class and via email.
+We will meet every Monday and Wednesday from 16:00 to 16:50 in the [Anthropology Building, 303](https://maps.app.goo.gl/bgxTfADzf1Vz2z1EA). It is important that you read the materials before class. All information about the course is available on the course's GitHub repository at <https://github.com/danilofreire/datasci151>. While I will try to adhere to the course schedule as much as possible, I also want to adapt to your learning pace and style. The syllabus and course plan may change in the semester. Again, please check [the course repository](https://github.com/danilofreire/datasci151) regularly to check for updates. I will also announce any changes in class and via email.
 
 # Software
 
@@ -98,7 +98,7 @@ We will use [PostgreSQL](https://www.postgresql.org/) for database management. Y
 
 We will also use [Jupyter Notebooks](https://jupyter.org/) in class. Jupyter itself comes pre-installed with Anaconda, but please install the [Jupyter extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter&ssr=false) as well. We will have a hands-on session to learn how to use Jupyter effectively.
 
-To help you get started, I have prepared [a series of tutorials](https://github.com/danilofreire/qtm151/tree/main/tutorials) on how to install Anaconda, Jupyter, PostgreSQL, VS Code, and open a free educational account on GitHub. Please follow these tutorials as soon as possible to ensure that you have all the necessary tools for the course.
+To help you get started, I have prepared [a series of tutorials](https://github.com/danilofreire/datasci151/tree/main/tutorials) on how to install Anaconda, Jupyter, PostgreSQL, VS Code, and open a free educational account on GitHub. Please follow these tutorials as soon as possible to ensure that you have all the necessary tools for the course.
 
 # Office Hours
 
@@ -126,7 +126,7 @@ Emory University welcomes students from around the country and the world, and th
 
 **Class Quizzes (30%).** Students will also take five in-class quizzes throughout the semester. These quizzes will be based on the lectures from the previous weeks. They will be designed to test your understanding of the material and your ability to apply the concepts to new problems. Quizzes will be open-book and open-notes, and students have 50 minutes to complete them. You are **not** allowed to use AI tools. They are individual assessments, and students are not allowed to discuss the questions with their colleagues in class. 
 
-**Final Project (20%).** The final project will consist of a short report, created using Jupyter and using one of the datasets shared on the course [GitHub repository](https://github.com/danilofreire/qtm151/tree/main/final-project). Further instructions will be provided in class. The final project will be due on the last day of class.
+**Final Project (20%).** The final project will consist of a short report, created using Jupyter and using one of the datasets shared on the course [GitHub repository](https://github.com/danilofreire/datasci151/tree/main/final-project). Further instructions will be provided in class. The final project will be due on the last day of class.
 
 # Grading Scale
 
@@ -138,15 +138,15 @@ Each student's final grade will be based on the following after rounding up to t
 
 # Course Outline and Suggested Readings
 
-The lecture notes cover all the necessary material for the course, and the weekly suggested readings are recommended for those who want to deepen their understanding of the course topics. As mentioned above, the course outline is subject to change, and I will update the syllabus if needed. Please remember to check the course [GitHub repository](https://github.com/danilofreire/qtm151) regularly.
+The lecture notes cover all the necessary material for the course, and the weekly suggested readings are recommended for those who want to deepen their understanding of the course topics. As mentioned above, the course outline is subject to change, and I will update the syllabus if needed. Please remember to check the course [GitHub repository](https://github.com/danilofreire/datasci151) regularly.
 
 ## Module 01: Introduction to Python, Jupyter, and GitHub
 
 ### Lecture 01 
 
-- Syllabus and course repository: <https://github.com/danilofreire/qtm151>.
-- Lecture 01: [Welcome to QTM 151 - Introduction](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-01/01-introduction.html).
-- [Course Tutorials: How to Install Anaconda, Jupyter, PostgreSQL, VSCode, and Open a Free Educational Account on GitHub](https://github.com/danilofreire/qtm151/tutorials).
+- Syllabus and course repository: <https://github.com/danilofreire/datasci151>.
+- Lecture 01: [Welcome to DATASCI 151 - Introduction](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-01/01-introduction.html).
+- [Course Tutorials: How to Install Anaconda, Jupyter, PostgreSQL, VSCode, and Open a Free Educational Account on GitHub](https://github.com/danilofreire/datasci151/tutorials).
 
 Weekly suggested readings:
 
@@ -157,9 +157,9 @@ Weekly suggested readings:
 
 ### Lecture 02
 
-- [Lecture 02: GitHub Review](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-02/02-github-jupyter.html), [Introduction to Jupyter Notebooks](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-02/02-jupyter.ipynb).
-- Extra lecture: [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-02/02-github-jupyter.html#/title-slide).  [Video Recording](https://emory-my.sharepoint.com/:v:/g/personal/dafreir_emory_edu/EaTyfePUASBJlUyB-0HuGKkB9YyPc0kS3DARtdAzVst8PQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZERpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=5BO5Zi).
-- **Assignment 01:** [Problem Set 01](https://github.com/danilofreire/qtm151/blob/main/assignments/01-assignment.ipynb).
+- [Lecture 02: GitHub Review](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-02/02-github-jupyter.html), [Introduction to Jupyter Notebooks](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-02/02-jupyter.ipynb).
+- Extra lecture: [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-02/02-github-jupyter.html#/title-slide).  [Video Recording](https://emory-my.sharepoint.com/:v:/g/personal/dafreir_emory_edu/EaTyfePUASBJlUyB-0HuGKkB9YyPc0kS3DARtdAzVst8PQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZERpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=5BO5Zi).
+- **Assignment 01:** [Problem Set 01](https://github.com/danilofreire/datasci151/blob/main/assignments/01-assignment.ipynb).
 
 Weekly suggested readings:
 
@@ -173,13 +173,13 @@ Weekly suggested readings:
 
 ### Lecture 03
 
--  Lecture 03: Variables and Lists. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-03/03-variables-lists.ipynb). [Lecture Slides](https://rawcdn.githack.com/danilofreire/qtm151/4c85d539a1a386e76a2e105625b780d44830dc2d/lectures/lecture-03/03-variables-lists.html)
+-  Lecture 03: Variables and Lists. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-03/03-variables-lists.ipynb). [Lecture Slides](https://rawcdn.githack.com/danilofreire/datasci151/4c85d539a1a386e76a2e105625b780d44830dc2d/lectures/lecture-03/03-variables-lists.html)
 
 ### Lecture 04
 
-- Lecture 04: Mathematical Operations, Arrays, and Random Numbers. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-04/04-maths-arrays-random.ipynb).
+- Lecture 04: Mathematical Operations, Arrays, and Random Numbers. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-04/04-maths-arrays-random.ipynb).
 - **Assignment 01 due (5%).**
-- **Assignment 02:** [Problem Set 02](https://github.com/danilofreire/qtm151/blob/main/assignments/02-assignment.ipynb).
+- **Assignment 02:** [Problem Set 02](https://github.com/danilofreire/datasci151/blob/main/assignments/02-assignment.ipynb).
 
 Weekly suggested readings:
 
@@ -192,13 +192,13 @@ Weekly suggested readings:
 
 ### Lecture 05
 
-- Lecture 05: Boolean Variables and If/Else Statements. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-05/05-boolean-if-else.ipynb), [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-05/05-boolean-if-else.html).
+- Lecture 05: Boolean Variables and If/Else Statements. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-05/05-boolean-if-else.ipynb), [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-05/05-boolean-if-else.html).
 
 ### Lecture 06
 
-- Lecture 06: While Loops and For Loops. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-06/06-while-for.ipynb), [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-06/06-while-for.html)
+- Lecture 06: While Loops and For Loops. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-06/06-while-for.ipynb), [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-06/06-while-for.html)
 - **Assignment 02 due (5%).**
-- **Assignment 03:** [Problem Set 03](https://github.com/danilofreire/qtm151/blob/main/assignments/03-assignment.ipynb).
+- **Assignment 03:** [Problem Set 03](https://github.com/danilofreire/datasci151/blob/main/assignments/03-assignment.ipynb).
 
 Weekly suggested readings:
 
@@ -214,13 +214,13 @@ Weekly suggested readings:
 
 ### Lecture 07
 
-- Lecture 07: Applications 1: Simulation Studies. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-07/07-applications-simulation.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-07/07-applications-simulation.html).
+- Lecture 07: Applications 1: Simulation Studies. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-07/07-applications-simulation.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-07/07-applications-simulation.html).
 
 ### Lecture 08
 
-- Lecture 08: [Functions and Arguments](https://danilofreire.github.io/qtm151/lectures/lecture-08/08-functions-arguments.ipynb).
+- Lecture 08: [Functions and Arguments](https://danilofreire.github.io/datasci151/lectures/lecture-08/08-functions-arguments.ipynb).
 - **Assignment 03 due (5%).**
-- **Assignment 04:** [Problem Set 04](https://github.com/danilofreire/qtm151/blob/main/assignments/04-assignment.ipynb).
+- **Assignment 04:** [Problem Set 04](https://github.com/danilofreire/datasci151/blob/main/assignments/04-assignment.ipynb).
 
 Weekly suggested readings:
 
@@ -231,13 +231,13 @@ Weekly suggested readings:
 
 ### Lecture 09
 
-- Lecture 09: Global and Local Variables. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-09/09-global-local.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-09/09-global-local.html).
+- Lecture 09: Global and Local Variables. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-09/09-global-local.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-09/09-global-local.html).
   - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=e5422be1-4423-436b-9d99-895879b4d906&hostId=05eb977d-4f8a-440e-9e45-95212b29d103)
 
 ### Lecture 10
 
-- Lecture 10: [**Quiz 01: Application 02 - Operations over Multiple Datasets (6%)**](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-10/10-operations-multiple-datasets.ipynb).
-- **Assignment 05:** [Problem Set 05](https://github.com/danilofreire/qtm151/blob/main/assignments/05-assignment.ipynb).
+- Lecture 10: [**Quiz 01: Application 02 - Operations over Multiple Datasets (6%)**](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-10/10-operations-multiple-datasets.ipynb).
+- **Assignment 05:** [Problem Set 05](https://github.com/danilofreire/datasci151/blob/main/assignments/05-assignment.ipynb).
 - **Assignment 04 due (5%).**
 
 Weekly suggested readings:
@@ -248,7 +248,7 @@ Weekly suggested readings:
 
 ### Lecture 11
 
-- Lecture 11: Subsetting Data. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-11/11-subsetting-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-11/11-subsetting-data.html)
+- Lecture 11: Subsetting Data. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-11/11-subsetting-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-11/11-subsetting-data.html)
 
 Weekly suggested readings:
 
@@ -262,15 +262,15 @@ Weekly suggested readings:
 
 ### Lecture 12
 
-- Lecture 12: Application 03: Linear Models. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-12/12-linear-models.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-12/12-linear-models.html).
+- Lecture 12: Application 03: Linear Models. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-12/12-linear-models.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-12/12-linear-models.html).
 - **Assignment 05 due (5%).**
-- **Assignment 06:** [Problem Set 06](https://github.com/danilofreire/qtm151/blob/main/assignments/06-assignment.ipynb).
+- **Assignment 06:** [Problem Set 06](https://github.com/danilofreire/datasci151/blob/main/assignments/06-assignment.ipynb).
 
 ### Lecture 13
 
-- Lecture 13: Replacing and Recoding Variables. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-13/13-replacing-recoding-variables.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-13/13-replacing-recoding-variables.html).
+- Lecture 13: Replacing and Recoding Variables. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-13/13-replacing-recoding-variables.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-13/13-replacing-recoding-variables.html).
 - **Assignment 06 due (5%).**
-- **Assignment 07:** [Problem Set 07](https://github.com/danilofreire/qtm151/blob/main/assignments/07-assignment.ipynb).
+- **Assignment 07:** [Problem Set 07](https://github.com/danilofreire/datasci151/blob/main/assignments/07-assignment.ipynb).
 
 Weekly suggested readings:
 
@@ -279,13 +279,13 @@ Weekly suggested readings:
 
 ### Lecture 14
 
-- Lecture 14: [**Quiz 2: Application 4: Random Assignment (6%)**](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-14/14-random-assignment.ipynb).
+- Lecture 14: [**Quiz 2: Application 4: Random Assignment (6%)**](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-14/14-random-assignment.ipynb).
 
 ### Lecture 15
 
-- Lecture 15: Aggregating Data. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-15/15-aggregating-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-15/15-aggregating-data.html).
+- Lecture 15: Aggregating Data. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-15/15-aggregating-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-15/15-aggregating-data.html).
 - **Assignment 07 due (5%).**
-- **Assignment 08:** [Problem Set 08](https://github.com/danilofreire/qtm151/blob/main/assignments/08-assignment.ipynb).
+- **Assignment 08:** [Problem Set 08](https://github.com/danilofreire/datasci151/blob/main/assignments/08-assignment.ipynb).
 
 Weekly suggested readings:
 
@@ -298,16 +298,16 @@ Weekly suggested readings:
 
 ### Lecture 16
 
-- Lecture 16: Merging Data. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-16/16-merging-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-16/16-merging-data.html).
+- Lecture 16: Merging Data. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-16/16-merging-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-16/16-merging-data.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=2f7a071d-61d4-4069-bed3-ff283a7bd1c3&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
 
 ### Lecture 17
 
-- Lecture 17: Introduction to SQL. [SQL file](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-17/17-introduction-sql.sql). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-17/17-introduction-sql.html).
+- Lecture 17: Introduction to SQL. [SQL file](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-17/17-introduction-sql.sql). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-17/17-introduction-sql.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=be2a60bb-9c17-49d0-b291-a916be65d5f5&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
 - **Assignment 08 due (5%).**
-- **Assignment 09:** [Problem Set 09](https://github.com/danilofreire/qtm151/blob/main/assignments/09-assignment.sql).
-- **Instructions for the Final Project:** [Final Project](https://github.com/danilofreire/qtm151/blob/main/final-project).
+- **Assignment 09:** [Problem Set 09](https://github.com/danilofreire/datasci151/blob/main/assignments/09-assignment.sql).
+- **Instructions for the Final Project:** [Final Project](https://github.com/danilofreire/datasci151/blob/main/final-project).
 
 Weekly suggested readings:
 
@@ -320,13 +320,13 @@ Weekly suggested readings:
 
 ### Lecture 18
 
-- Lecture 18: [**Quiz 3: Application 5: Practicing Chaining (6%)**](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-18/18-chaining.ipynb).
+- Lecture 18: [**Quiz 3: Application 5: Practicing Chaining (6%)**](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-18/18-chaining.ipynb).
 
 ### Lecture 19
 
-- Lecture 19: Import SQL Data into Python. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-19/19-sql-python.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-19/19-sql-python.html).
+- Lecture 19: Import SQL Data into Python. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-19/19-sql-python.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-19/19-sql-python.html).
 - **Assignment 09 due (5%).**
-- **Assignment 10:** [Problem Set 10](https://github.com/danilofreire/qtm151/tree/main/assignments/10-assignment).
+- **Assignment 10:** [Problem Set 10](https://github.com/danilofreire/datasci151/tree/main/assignments/10-assignment).
 
 Weekly suggested readings:
 
@@ -339,12 +339,12 @@ Weekly suggested readings:
 
 ### Lecture 20
 
-- Lecture 20: Merging Tables in SQL. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-20/20-sql-merging.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-20/20-sql-merging.html).
+- Lecture 20: Merging Tables in SQL. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-20/20-sql-merging.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-20/20-sql-merging.html).
 - [Kahoot Quiz](https://play.kahoot.it/v2/?quizId=6e601286-2112-4bdb-b2da-609dce9d8a26&hostId=05eb977d-4f8a-440e-9e45-95212b29d103).
 
 ### Lecture 21
 
-- Lecture 21: Time Series Analysis. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-21/21-time-series.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-21/21-time-series.html).
+- Lecture 21: Time Series Analysis. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-21/21-time-series.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-21/21-time-series.html).
 - **Assignment 10 due (5%).**
 
 Weekly suggested readings:
@@ -356,11 +356,11 @@ Weekly suggested readings:
 
 ### Lecture 22
 
-- Lecture 22: [**Quiz 4: Application 6: Practice SQL Queries (6%)**](https://github.com/danilofreire/qtm151-quiz04).
+- Lecture 22: [**Quiz 4: Application 6: Practice SQL Queries (6%)**](https://github.com/danilofreire/datasci151-quiz04).
 
 ### Lecture 23
 
-- Lecture 23: Pivot Tables. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-23/23-pivot-tables.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-23/23-pivot-tables.html).
+- Lecture 23: Pivot Tables. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-23/23-pivot-tables.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-23/23-pivot-tables.html).
 
 Weekly suggested readings:
 
@@ -373,13 +373,13 @@ Weekly suggested readings:
 
 ### Lecture 24
 
-- Lecture 24: Manipulating Text Data. [Jupyter Notebook](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-24/24-text-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-24/24-text-data.html).
+- Lecture 24: Manipulating Text Data. [Jupyter Notebook](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-24/24-text-data.ipynb). [Lecture Slides](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-24/24-text-data.html).
 
 ### Wednesday, November 27: Thanksgiving Break (no class)
 
 ### Lecture 25
 
-- Lecture 25: [**Quiz 5: Application 8: Time Data, Panel Data, and Plots (6%)**](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-25/25-time-panel-plots.ipynb).
+- Lecture 25: [**Quiz 5: Application 8: Time Data, Panel Data, and Plots (6%)**](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-25/25-time-panel-plots.ipynb).
 
 ### Lecture 26
 

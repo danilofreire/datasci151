@@ -1,4 +1,4 @@
-# QTM 151 - Quiz 01
+# DATASCI 151 - Quiz 01
 
 ## Instructions
 
@@ -21,7 +21,7 @@ This quiz will cover the following topics:
 
 ## Dataset
 
-You will be working with a provided dataset for this quiz. The dataset contains information on various car models and their specifications. You can find the dataset files in the `data_quiz` folder, or as a `.zip` file in the `quiz` folder in our GitHub repository: <https://github.com/danilofreire/qtm151/tree/main/quizzes/01-quiz.zip>.
+You will be working with a provided dataset for this quiz. The dataset contains information on various car models and their specifications. You can find the dataset files in the `data_quiz` folder, or as a `.zip` file in the `quiz` folder in our GitHub repository: <https://github.com/danilofreire/datasci151/tree/main/quizzes/01-quiz.zip>.
 
 ## Notes
 

@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Stats Computing II
+title: DATASCI 151 - Introduction to Stats Computing II
 subtitle: Lecture 16 - Merging Data
 author:
   - name: Danilo Freire
@@ -9,7 +9,7 @@ format:
   clean-revealjs:
     self-contained: true
     code-overflow: wrap
-    footer: "[Merging Data](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-16/16-merging-data.html)"
+    footer: "[Merging Data](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-16/16-merging-data.html)"
 transition: slide
 transition-speed: default
 scrollable: true
@@ -184,7 +184,7 @@ print(unique_data_circuits)
 - You can access values by referencing their keys using square brackets (`[]`)
 - Dictionaries are [defined using curly braces `{}` with key-value pairs separated by colons (`:`)]{.alert}
 - Fields are separated by commas (`,`)
-- Example of a dictionary: `my_dict = {"name": "Danilo", "course": "QTM151", "city": "Atlanta"}`
+- Example of a dictionary: `my_dict = {"name": "Danilo", "course": "DATASCI151", "city": "Atlanta"}`
 - You can add, modify, or delete key-value pairs in a dictionary
 - Dictionaries are mutable, meaning they can be changed after creation
 :::

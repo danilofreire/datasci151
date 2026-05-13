@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Statistical Computing II
+title: DATASCI 151 - Introduction to Statistical Computing II
 subtitle: Lecture 20 - Joining Tables in SQL (SQLite)
 author:
   - name: Danilo Freire
@@ -9,7 +9,7 @@ format:
   clean-revealjs:
     self-contained: true
     code-overflow: wrap
-    footer: "[Joining Tables (SQLite)](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-20/20-sql-merging.html)" # Updated footer
+    footer: "[Joining Tables (SQLite)](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-20/20-sql-merging.html)" # Updated footer
 transition: slide
 transition-speed: default
 scrollable: true
@@ -28,7 +28,7 @@ editor:
 ## Some updates on the final project
 
 ::: {style="margin-top: 60px; font-size: 24px;"}
-- The list of groups is now available on our reppository. [Check it out here](https://github.com/danilofreire/qtm151/blob/main/final-project/groups.ipynb)
+- The list of groups is now available on our reppository. [Check it out here](https://github.com/danilofreire/datasci151/blob/main/final-project/groups.ipynb)
 - All groups have 3-4 members, as we discussed
 - Many thanks to all of you who have already formed your groups and sent them to me! 🙏🏻
 - Those not in a group have been assigned to one at random

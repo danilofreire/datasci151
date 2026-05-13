@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Statistical Computing II
+title: DATASCI 151 - Introduction to Statistical Computing II
 subtitle: "Lecture 08 - Custom Functions"
 author:
   - name: Danilo Freire
@@ -8,7 +8,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[Custom Functions](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-08/08-functions-arguments.html)"
+    footer: "[Custom Functions](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-08/08-functions-arguments.html)"
 transition: slide
 transition-speed: default
 scrollable: true

@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Statistical Computing II
+title: DATASCI 151 - Introduction to Statistical Computing II
 subtitle: Lecture 05 - Boolean Logic and Conditional Statements
 author:
   - name: Danilo Freire
@@ -9,7 +9,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[Conditional Statements](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-05/05-boolean-if-else.html)"
+    footer: "[Conditional Statements](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-05/05-boolean-if-else.html)"
 transition: slide
 transition-speed: default
 scrollable: true

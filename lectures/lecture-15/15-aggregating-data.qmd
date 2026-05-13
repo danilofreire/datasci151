@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Intro to Stats Computing II
+title: DATASCI 151 - Intro to Stats Computing II
 subtitle: Lecture 15 - Aggregating Data
 author:
   - name: Danilo Freire
@@ -9,7 +9,7 @@ format:
   clean-revealjs:
     self-contained: true
     code-overflow: wrap
-    footer: "[Aggregating Data](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-15/15-aggregating-data.html)"
+    footer: "[Aggregating Data](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-15/15-aggregating-data.html)"
 transition: slide
 transition-speed: default
 scrollable: true

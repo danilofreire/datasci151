@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Statistical Computing II
+title: DATASCI 151 - Introduction to Statistical Computing II
 subtitle: Lecture 11 - Subsetting Data
 author:
   - name: Danilo Freire
@@ -8,7 +8,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[Subsetting Data](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-11/11-subsetting-data.html)"
+    footer: "[Subsetting Data](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-11/11-subsetting-data.html)"
 bibliography: references.bib
 transition: slide
 transition-speed: default
@@ -155,7 +155,7 @@ editor:
 - Finally, we will export the code to a Jupyter notebook
 - Let's do it together!
 
-- [Download the dataset](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-11/data_raw/features.csv) if you don't have it (click on `Download Raw File`)
+- [Download the dataset](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-11/data_raw/features.csv) if you don't have it (click on `Download Raw File`)
 - Open the dataset in the `Data Wrangler` and do the following:
   - Click on `Filter`
   - Select `cylinders` in `Choose column`

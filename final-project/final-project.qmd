@@ -1,5 +1,5 @@
 ---
-title: "QTM 151 - Introduction to Statistical Computing II"
+title: "DATASCI 151 - Introduction to Statistical Computing II"
 date: today
 date-format: "DD MMMM, YYYY"
 lang: en-GB
@@ -34,7 +34,7 @@ editor:
 
 # Overview 
 
-This project tests your ability to combine the programming concepts covered in QTM 151 and
+This project tests your ability to combine the programming concepts covered in DATASCI 151 and
 produce your own analysis for a real-world dataset. You will present a report in a Jupyter
 notebook, in groups of 3-4 students. Please submit the report as an HTML file.
 
@@ -98,7 +98,7 @@ You can decide what question (or set of questions) to answer, but the project mu
 - **Originality**: You can use part of the code used in lectures, quizzes, and assignments, but to get full points you should expand on what was done before.
 - **Running**: All the code should run properly. You will get points discounted if there are any errors.
 - **Aesthetics**: The work is organised and includes all the required elements. The overall appearance is neat and professional. Use headings and other markdown formatting elements to improve the appearance of your project. See more details here:
-  - <https://danilofreire.github.io/qtm151/tutorials/02-jupyter-markdown-tutorial.html#introduction-to-markdown>
+  - <https://danilofreire.github.io/datasci151/tutorials/02-jupyter-markdown-tutorial.html#introduction-to-markdown>
 
 # Grading Rubric
 

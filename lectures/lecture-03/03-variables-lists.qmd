@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Statistical Computing II
+title: DATASCI 151 - Introduction to Statistical Computing II
 subtitle: Installing Packages, Variables, and Lists
 author:
   - name: Danilo Freire
@@ -9,7 +9,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[Variables and Lists](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-03/03-variables-lists.html)"
+    footer: "[Variables and Lists](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-03/03-variables-lists.html)"
 bibliography: references.bib
 transition: slide
 transition-speed: default
@@ -161,7 +161,7 @@ editor:
 :::{style="margin-top: 30px; font-size: 26px;"}
 :::{.columns}
 :::{.column width="50%"}
-- Open the [`03-variables-lists.ipynb`](https://github.com/danilofreire/qtm151/blob/main/lectures/lecture-03/03-variables-lists.ipynb) notebook in VS Code (or create your own)
+- Open the [`03-variables-lists.ipynb`](https://github.com/danilofreire/datasci151/blob/main/lectures/lecture-03/03-variables-lists.ipynb) notebook in VS Code (or create your own)
 - Select the Python kernel you want to use
 - To execute your code, press `Shift + Enter` or click on the "Run" button
 - If you want to create a new Python cell, press `+ Code` in the toolbar

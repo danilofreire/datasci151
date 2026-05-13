@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Statistical Computing II
+title: DATASCI 151 - Introduction to Statistical Computing II
 subtitle: "Lecture 12 - Application 03: Linear Models"
 author:
   - name: Danilo Freire
@@ -8,7 +8,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[Linear Models](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-12/12-linear-models.html)"
+    footer: "[Linear Models](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-12/12-linear-models.html)"
 transition: slide
 transition-speed: default
 scrollable: true

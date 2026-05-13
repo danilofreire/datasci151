@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Statistical Computing II
+title: DATASCI 151 - Introduction to Statistical Computing II
 subtitle: Lecture 23 - Pivot Tables
 author:
   - name: Danilo Freire
@@ -9,7 +9,7 @@ format:
   clean-revealjs:
     self-contained: true
     code-overflow: wrap
-    footer: "[Pivot Tables](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-23/23-pivot-tables.html)"
+    footer: "[Pivot Tables](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-23/23-pivot-tables.html)"
 transition: slide
 transition-speed: default
 scrollable: true

@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Statistical Computing II
+title: DATASCI 151 - Introduction to Statistical Computing II
 subtitle: Lecture 01 - Introduction and Course Overview
 author:
   - name: Danilo Freire
@@ -8,7 +8,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[Lecture 01](https://danilofreire.github.io/qtm151/lectures/lecture-01/01-introduction.html)"
+    footer: "[Lecture 01](https://danilofreire.github.io/datasci151/lectures/lecture-01/01-introduction.html)"
 bibliography: references.bib
 transition: slide
 transition-speed: default
@@ -36,7 +36,7 @@ packages <- c("emo", "fontawesome")
 lapply(packages, install_if_missing)
 ```
 
-# Welcome to QTM 151 - Introduction to Statistical Computing II! `{r} emo::ji('partying_face')` `{r} emo::ji('tada')` {background-color="#2d4563"}
+# Welcome to DATASCI 151 - Introduction to Statistical Computing II! `{r} emo::ji('partying_face')` `{r} emo::ji('tada')` {background-color="#2d4563"}
 
 ## Lecture Overview
 
@@ -52,9 +52,9 @@ lapply(packages, install_if_missing)
 ### Important Links
 
 ::: {style="font-size: 28px;"}
-`r fa('github')` Course repository: <https://github.com/danilofreire/qtm151>
+`r fa('github')` Course repository: <https://github.com/danilofreire/datasci151>
 
-`r fa('globe')` Course website: <https://danilofreire.github.io/qtm151>
+`r fa('globe')` Course website: <https://danilofreire.github.io/datasci151>
 
 This course is hosted on GitHub, where you will find lecture materials, code samples, our discussion space, assignments, and final project instructions. Canvas will be used for course management, including assignment submissions, grades, and announcements. Please familiarise yourself with both platforms, and reach out if you have any questions.
 
@@ -183,7 +183,7 @@ The Python community is very active and welcoming!
 ```{java}
 public class Welcome {
     public static void main(String[] args) {
-        System.out.println("Welcome to QTM151!");
+        System.out.println("Welcome to DATASCI151!");
     }
 }
 
@@ -194,7 +194,7 @@ public class Welcome {
 #| eval: false
 #| output: false
 #| python.reticulate: false
-print("Welcome to QTM151!")
+print("Welcome to DATASCI151!")
 ```
 :::
 ::::
@@ -280,7 +280,7 @@ print("Welcome to QTM151!")
 
 <br>
 
-- Follow the instructions [on our GitHub repository](https://github.com/danilofreire/qtm151/blob/main/tutorials/01-vscode-anaconda-tutorial.pdf) 
+- Follow the instructions [on our GitHub repository](https://github.com/danilofreire/datasci151/blob/main/tutorials/01-vscode-anaconda-tutorial.pdf) 
 - We are using Anaconda virtual environments for this class (I will cover this in more detail next class)​
 - For now: Anaconda comes with a Python installation​
 
@@ -292,10 +292,10 @@ print("Welcome to QTM151!")
 
 <br>
 
-- Follow the instructions [Installing Visual Studio Code and Connecting it with Anaconda](https://github.com/danilofreire/qtm151/blob/main/tutorials/01-vscode-anaconda-tutorial.pdf) from GitHub
+- Follow the instructions [Installing Visual Studio Code and Connecting it with Anaconda](https://github.com/danilofreire/datasci151/blob/main/tutorials/01-vscode-anaconda-tutorial.pdf) from GitHub
 - For now: know that "base" is the Anaconda virtual environment that comes by default with the installation​
 - The next step is to check if the connection between VSCode and Anaconda worked -> [the `Python: Select Interpreter` option should include Python ("base")​]{.alert}
-- Next step: we will create a new folder for the QTM151 course and download our virtual GitHub folder and opening it in VSCode
+- Next step: we will create a new folder for the DATASCI151 course and download our virtual GitHub folder and opening it in VSCode
 
 ## {background-image="figures/github01.png" background-size="100%"}
 
@@ -306,7 +306,7 @@ print("Welcome to QTM151!")
 :::: {.columns}
 ::: {.column width=30%}
 ::: {style="font-size: 26px;"}
-- We will use Jupyter Notebooks for our classes. We have [a tutorial on how to use them too](https://github.com/danilofreire/qtm151/blob/main/tutorials/02-jupyter-markdown-tutorial.pdf)
+- We will use Jupyter Notebooks for our classes. We have [a tutorial on how to use them too](https://github.com/danilofreire/datasci151/blob/main/tutorials/02-jupyter-markdown-tutorial.pdf)
 - Jupyter Notebooks are a great way to combine code, text, and visualisations
 - It is encouraged that you bring your laptop to class
 - Lecture notes are designed to be follow-along. There will be many "try it yourself" exercises throughout the lectures!
@@ -324,7 +324,7 @@ print("Welcome to QTM151!")
 - Don't worry if you are not able to follow along with the installation instructions. We will have time to do this next class
 - We will start with the basics of Jupyter Notebooks
 - We will also cover the basics of Anaconda and VSCode
-- Please remember to check the course repository, mainly the tutorials: <https://github.com/danilofreire/qtm151> 
+- Please remember to check the course repository, mainly the tutorials: <https://github.com/danilofreire/datasci151> 
 - And please do not forget:
   - Coding ability can be developed
   - Academic skills and abilities are acquired through hard work, mistakes, and perseverance. Coding is no different

@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Statistical Computing II
+title: DATASCI 151 - Introduction to Statistical Computing II
 subtitle: Lecture 04 - Mathematical Operations, Arrays, and Random Numbers
 author:
   - name: Danilo Freire
@@ -9,7 +9,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[Maths with NumPy](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-04/04-maths-arrays-random.html)"
+    footer: "[Maths with NumPy](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-04/04-maths-arrays-random.html)"
 transition: slide
 transition-speed: default
 scrollable: true
@@ -34,8 +34,8 @@ editor:
 :::
 
 :::{.column width="50%"}
-- [Assignment 01](https://github.com/danilofreire/qtm151/blob/main/assignments/02-assignment.ipynb) is due today! 🚨
-- Assignment 02 is already online on Canvas and [GitHub](https://github.com/danilofreire/qtm151/blob/main/assignments/02-assignment.ipynb)
+- [Assignment 01](https://github.com/danilofreire/datasci151/blob/main/assignments/02-assignment.ipynb) is due today! 🚨
+- Assignment 02 is already online on Canvas and [GitHub](https://github.com/danilofreire/datasci151/blob/main/assignments/02-assignment.ipynb)
 - Feel free to email your assignments to me at <danilo.freire@emory.edu> or submit it via Canvas (hopefully it is working now!)
 - We will mark them and provide feedback on your work soon
 :::

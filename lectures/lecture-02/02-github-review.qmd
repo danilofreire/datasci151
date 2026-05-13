@@ -8,7 +8,7 @@ author:
 format:
   clean-revealjs:
     self-contained: true
-    footer: "[GitHub Review](https://danilofreire.github.io/qtm151/lectures/lecture-02/02-github-review.html)"
+    footer: "[GitHub Review](https://danilofreire.github.io/datasci151/lectures/lecture-02/02-github-review.html)"
 transition: slide
 transition-speed: default
 scrollable: true
@@ -40,7 +40,7 @@ editor:
 - [GitHub Desktop](https://desktop.github.com/) (Git user interface)
 - [Visual Studio Code](https://code.visualstudio.com/) (Code editor)
 
-- Please check the tutorials on the course repository: <https://github.com/danilofreire/qtm151/tutorials>. They will help you with the installation and setup of the software. 
+- Please check the tutorials on the course repository: <https://github.com/danilofreire/datasci151/tutorials>. They will help you with the installation and setup of the software. 
 - You can also get help from [Student Tech Support](https://ats.emory.edu/sdl/StudentTechnologySupport/index.html)
 - If you have any questions, please let us know!
 :::
@@ -79,7 +79,7 @@ There are two ways to access a repository:​
 :::: {.columns}
 ::: {.column width=50%}
 ::: {style="font-size: 27px;"}
-- Example repo: <https://github.com/danilofreire/qtm151-example-repository>
+- Example repo: <https://github.com/danilofreire/datasci151-example-repository>
 
 - We can clone the repo using GitHub desktop
   - It [does not create a remote copy]{.alert} of the repo in my GitHub page​
@@ -139,12 +139,12 @@ There are two ways to access a repository:​
 :::: {.columns}
 ::: {.column width=50%}
 ::: {style="font-size: 27px;"}
-- Example repo: <https://github.com/danilofreire/qtm151-example-repository>
+- Example repo: <https://github.com/danilofreire/datasci151-example-repository>
 - We can fork the repo using the GitHub page
   - It creates a remote copy of the repo on your GitHub
   - You can then clone the repo to your local computer and work on it
   - You can push changes to your remote repo
-  - See the [GitHub Tutorial](https://github.com/danilofreire/qtm151/blob/main/tutorials/03-github-tutorial.pdf) for more details
+  - See the [GitHub Tutorial](https://github.com/danilofreire/datasci151/blob/main/tutorials/03-github-tutorial.pdf) for more details
 :::
 :::
 

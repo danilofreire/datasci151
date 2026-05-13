@@ -1,5 +1,5 @@
 ---
-title: QTM 151 - Introduction to Statistical Computing II
+title: DATASCI 151 - Introduction to Statistical Computing II
 subtitle: Lecture 17 - Introduction to SQL with SQLite
 author:
   - name: Danilo Freire
@@ -9,7 +9,7 @@ format:
   clean-revealjs:
     self-contained: true
     code-overflow: wrap
-    footer: "[Introduction to SQL with SQLite](https://raw.githack.com/danilofreire/qtm151/main/lectures/lecture-17/17-introduction-sql.html)" # Updated footer link
+    footer: "[Introduction to SQL with SQLite](https://raw.githack.com/danilofreire/datasci151/main/lectures/lecture-17/17-introduction-sql.html)" # Updated footer link
 transition: slide
 transition-speed: default
 scrollable: true
@@ -30,8 +30,8 @@ editor:
 - **Task**: Write a report on a data analysis project based on the Formula 1 datasets
 - **Groups**: 3-4 students
 - **Submission**: HTML file from Jupyter Notebook
-- **Resources**: [GitHub repository](https://github.com/danilofreire/qtm151/tree/main/final-project)
-- **More information**: [Final Project Instructions](https://github.com/danilofreire/qtm151/blob/main/final-project/final-project.pdf)
+- **Resources**: [GitHub repository](https://github.com/danilofreire/datasci151/tree/main/final-project)
+- **More information**: [Final Project Instructions](https://github.com/danilofreire/datasci151/blob/main/final-project/final-project.pdf)
 :::
 
 ## Other reminders 📝
