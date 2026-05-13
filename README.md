@@ -1,10 +1,10 @@
-# QTM 151 - Introduction to Statistical Computing
+# DATASCI 151 - Introduction to Statistical Computing
 
-This branch hosts the website for the course [QTM 151 - Introduction to
-Statistical Computing](http://danilofreire.github.io/qtm151) at [Emory
+This branch hosts the website for the course [DATASCI 151 - Introduction to
+Statistical Computing](http://danilofreire.github.io/datasci151) at [Emory
 University](http://www.emory.edu). The course provides an introduction to
 Python and SQL for data management and analysis. Please refer to the `main`
-branch of [this repository](https://github.com/danilofreire/qtm151) for the
+branch of [this repository](https://github.com/danilofreire/datasci151) for the
 course materials.
 
 ## Building the website
@@ -70,13 +70,13 @@ After that, I executed `jupyter lite build` to generate the Jupyter Lite
 environment. I then transferred the contents of the `_output/` folder to the
 `jupyter/` folder. To finalise the process, I pushed all changes to the
 `gh-pages` branch using `git push origin gh-pages`. The page is available at
-<https://danilofreire.github.io/qtm151/jupyter>.
+<https://danilofreire.github.io/datasci151/jupyter>.
 
 ## Contributing
 
 If you have any questions, please feel free to [open an
-issue](https://github.com/danilofreire/qtm151/issues) or [create a pull
-request](https://github.com/danilofreire/qtm151/pulls).
+issue](https://github.com/danilofreire/datasci151/issues) or [create a pull
+request](https://github.com/danilofreire/datasci151/pulls).
 
 ## License
 

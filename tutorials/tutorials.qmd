@@ -46,12 +46,12 @@ PDF versions of the tutorials are also available on GitHub: <https://github.com/
 
 
 For any questions or issues regarding these tutorials, please [open a GitHub
-issue](https://github.com/danilofreire/qtm151/issues), [submit a pull
-request](https://github.com/danilofreire/qtm151/pulls), or [create a discussion
-post](https://github.com/danilofreire/qtm151/discussions). 
+issue](https://github.com/danilofreire/datasci151/issues), [submit a pull
+request](https://github.com/danilofreire/datasci151/pulls), or [create a discussion
+post](https://github.com/danilofreire/datasci151/discussions). 
 
 Please do not forget that, in addition to the tutorials here, the [course
-syllabus](https://danilofreire.github.io/qtm151/syllabus.html#course-outline-and-suggested-readings)
+syllabus](https://danilofreire.github.io/datasci151/syllabus.html#course-outline-and-suggested-readings)
 also contains a list of recommended weekly readings and additional resources.
 
 I hope you like the
