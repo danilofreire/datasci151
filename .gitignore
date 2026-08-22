@@ -1272,3 +1272,10 @@ _quarto/
 
 # End of https://www.toptal.com/developers/gitignore/api/latex,linux,macos,python,r,vim,windows
 
+
+# Claude and AI agent configuration files
+CLAUDE.md
+AGENTS.md
+agents.md
+humaniser-skill.md
+.claude/
